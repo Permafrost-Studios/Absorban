@@ -34,8 +34,8 @@ public class BasicEnemy : MonoBehaviour
     void Update()
     {
         m_forwardIsGround = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsGround);
-        m_playerCollider = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsPlayer);
-        bool isAPlayer = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsPlayer);
+        m_playerCollider = Physics2D.OverlapCircle(attackPoint.transform.position, attackRadius, whatIsPlayer);
+        bool isAPlayer = Physics2D.OverlapCircle(attackPoint.transform.position, attackRadius, whatIsPlayer);
 
         //Changes direction if the enemy reaches the end of a platform
         if (m_forwardIsGround == false) 
@@ -46,7 +46,8 @@ public class BasicEnemy : MonoBehaviour
 
         if (isAPlayer) 
         {
-            //m_playerCollider.GameObject.GetComponent<playerHealth>().TakeDamage(attackDamage);
+            Debug.Log("Found a Player");
+            m_playerCollider.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
 
     }
