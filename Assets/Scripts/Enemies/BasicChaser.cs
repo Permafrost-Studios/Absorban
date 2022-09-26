@@ -16,6 +16,8 @@ public class BasicChaser : MonoBehaviour
     public float moveSpeed;
     public bool isFacingRight;
 
+    private float m_timeout = 2f;
+
     private Rigidbody2D body;
     private GameObject player;
     private bool m_forwardIsGround;
@@ -78,6 +80,16 @@ public class BasicChaser : MonoBehaviour
                     Flip();
                 }
             }
+        }
+
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) <  0.1f) 
+        {
+            m_timeout -= Time.deltaTime;
+        }
+
+        if(m_timeout <= 0f) 
+        {
+            m_isChasing = false;
         }
 
     }

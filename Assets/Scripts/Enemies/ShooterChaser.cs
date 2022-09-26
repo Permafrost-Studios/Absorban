@@ -17,6 +17,8 @@ public class ShooterChaser : MonoBehaviour
     public float shootForce;
     public float fireRate;
     private float m_shootCooldown;
+
+    private float m_timeout = 1f;
     
     public float moveSpeed;
     public bool isFacingRight;
@@ -93,6 +95,16 @@ public class ShooterChaser : MonoBehaviour
                     Flip();
                 }
             }
+        }
+
+        if (Mathf.Abs(player.transform.position.x - transform.position.x) <  0.1f) 
+        {
+            m_timeout -= Time.deltaTime;
+        }
+
+        if(m_timeout <= 0f) 
+        {
+            m_isChasing = false;
         }
 
     }

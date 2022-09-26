@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    public float despawnTime;
+    private float m_despawnTime = 3f;
     private float m_damage;
     private Rigidbody2D body;
 
@@ -15,19 +15,20 @@ public class EnemyProjectile : MonoBehaviour
         body.AddForce(transform.right * shootForce * directionMultiplier);
     }
 
-    void OnCollisionEnter(Collision other) 
+    void OnCollisionEnter2D(Collision2D other) 
     {
+        Debug.Log(m_damage);
         if (other.gameObject.layer == 7)
         {
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(m_damage);
-            Destroy(gameObject);
         } 
+        Destroy(gameObject);
     }
 
     void Update() {
-        despawnTime -= Time.deltaTime;
+        m_despawnTime -= Time.deltaTime;
 
-        if(despawnTime <= 0f) 
+        if(m_despawnTime <= 0f) 
         {
             Destroy(gameObject);
         }

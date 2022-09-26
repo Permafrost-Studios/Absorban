@@ -13,7 +13,8 @@ public class PlayerHealth : MonoBehaviour
     
     }
     
-    public void TakeDamage(float damageReceived) {
+    public void TakeDamage(float damageReceived) 
+    {
         Debug.Log("Damage Took");
         m_currentHealth -= damageReceived;
 
