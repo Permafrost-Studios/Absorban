@@ -22,12 +22,10 @@ public class BasicChaser : MonoBehaviour
     private bool m_facingRight;
     public bool m_isChasing;
     private Collider2D m_playerCollider;
-    private float m_directionMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_directionMultiplier = 1;
         m_isChasing = false;
         m_facingRight = isFacingRight;
         
@@ -49,7 +47,6 @@ public class BasicChaser : MonoBehaviour
         if (m_forwardIsGround == false && m_isChasing == false) 
         {
             Flip();
-            m_directionMultiplier *= -1;
         }
 
         if (isAPlayer) 
@@ -57,7 +54,7 @@ public class BasicChaser : MonoBehaviour
             m_playerCollider.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
 
-        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * m_directionMultiplier, sightRange, whatIsPlayer);
+        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * (m_facingRight ? 1 : -1), sightRange, whatIsPlayer);
 
         if(sightHit.collider != null) 
         {
@@ -99,6 +96,6 @@ public class BasicChaser : MonoBehaviour
     void OnDrawGizmos() 
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * m_directionMultiplier); //Always facing right even if the actual ray is left. Just for lengh
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
     }
 }

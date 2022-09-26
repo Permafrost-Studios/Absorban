@@ -13,6 +13,11 @@ public class ShooterChaser : MonoBehaviour
     public float shootRange;
     public float sightRange;
     
+    public float shootDamage;
+    public float shootForce;
+    public float fireRate;
+    private float m_shootCooldown;
+    
     public float moveSpeed;
     public bool isFacingRight;
 
@@ -22,12 +27,11 @@ public class ShooterChaser : MonoBehaviour
     private bool m_facingRight;
     public bool m_isChasing;
     private Collider2D m_playerCollider;
-    private float m_directionMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
-        m_directionMultiplier = 1;
+        m_shootCooldown = 0f;
         m_isChasing = false;
         m_facingRight = isFacingRight;
         
@@ -41,16 +45,17 @@ public class ShooterChaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        m_shootCooldown -= Time.deltaTime;
+
         m_forwardIsGround = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsGround);
 
         //Changes direction if the enemy reaches the end of a platform
         if (m_forwardIsGround == false && m_isChasing == false) 
         {
             Flip();
-            m_directionMultiplier *= -1;
         }
 
-        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * m_directionMultiplier, sightRange, whatIsPlayer);
+        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * (m_facingRight ? 1 : -1), sightRange, whatIsPlayer);
 
         if(sightHit.collider != null) 
         {
@@ -58,12 +63,18 @@ public class ShooterChaser : MonoBehaviour
             m_isChasing = true;
         }
 
-        RaycastHit2D shootHit = Physics2D.Raycast(shootPoint.transform.position, transform.right * m_directionMultiplier, shootRange, whatIsPlayer);
+        RaycastHit2D shootHit = Physics2D.Raycast(shootPoint.transform.position, transform.right * (m_facingRight ? 1 : -1), shootRange, whatIsPlayer);
 
         if(shootHit.collider != null) 
         {
-            Debug.Log("Shot at the player");
-            Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
+            if(m_shootCooldown <= 0) {
+                Debug.Log("Shot at the player");
+                GameObject currentProjectile;
+                currentProjectile = Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
+                currentProjectile.GetComponent<EnemyProjectile>().Shoot(shootDamage, shootForce, (m_facingRight ? 1 : -1));
+
+                m_shootCooldown = fireRate;
+            }
         }
 
         if(m_isChasing == true) 
@@ -100,6 +111,6 @@ public class ShooterChaser : MonoBehaviour
     void OnDrawGizmos() 
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange); //Always facing right even if the actual ray is left. Just for length purposes
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
     }
 }
