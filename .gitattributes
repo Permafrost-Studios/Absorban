@@ -52,3 +52,4 @@
 *.meta linguist-generated=true
 *.prefab linguist-generated=true
 *.unity linguist-generated=true
+*.xsd linguist-generated=true
