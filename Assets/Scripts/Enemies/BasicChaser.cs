@@ -22,10 +22,12 @@ public class BasicChaser : MonoBehaviour
     private bool m_facingRight;
     public bool m_isChasing;
     private Collider2D m_playerCollider;
+    private float m_directionMultiplier;
 
     // Start is called before the first frame update
     void Start()
     {
+        m_directionMultiplier = 1;
         m_isChasing = false;
         m_facingRight = isFacingRight;
         
@@ -42,13 +44,12 @@ public class BasicChaser : MonoBehaviour
         m_forwardIsGround = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsGround);
         m_playerCollider = Physics2D.OverlapCircle(attackPoint.transform.position, attackRadius, whatIsPlayer);
         bool isAPlayer = Physics2D.OverlapCircle(attackPoint.transform.position, attackRadius, whatIsPlayer);
-        float directionMultiplier = 1;
 
         //Changes direction if the enemy reaches the end of a platform
         if (m_forwardIsGround == false && m_isChasing == false) 
         {
             Flip();
-            directionMultiplier *= -1;
+            m_directionMultiplier *= -1;
         }
 
         if (isAPlayer) 
@@ -56,7 +57,7 @@ public class BasicChaser : MonoBehaviour
             m_playerCollider.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
 
-        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * directionMultiplier, sightRange, whatIsPlayer);
+        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * m_directionMultiplier, sightRange, whatIsPlayer);
 
         if(sightHit.collider != null) 
         {
@@ -98,6 +99,6 @@ public class BasicChaser : MonoBehaviour
     void OnDrawGizmos() 
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange); //Always facing right even if the actual ray is left. Just for lengh
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * m_directionMultiplier); //Always facing right even if the actual ray is left. Just for lengh
     }
 }
