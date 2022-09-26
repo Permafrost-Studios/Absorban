@@ -1,4 +1,27 @@
 .button-slanted {
     background-color: rgba(144, 101, 114, 0);
     background-image: url('project://database/Assets/UI/button.png?fileID=2800000&guid=983d8dedb2b5dfca3afbad53b89d46c1&type=3#button');
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.button-main {
+    background-color: rgba(144, 101, 114, 0);
+    background-image: url('project://database/Assets/UI/button.png?fileID=2800000&guid=983d8dedb2b5dfca3afbad53b89d46c1&type=3#button');
+    -unity-font-style: bold;
+    -unity-text-align: middle-left;
+    color: rgba(250, 245, 245, 255);
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.button-main-text {
+    background-color: rgba(144, 101, 114, 0);
+    background-image: none;
+    -unity-font-style: bold;
+    -unity-text-align: middle-left;
+    color: rgb(250, 245, 245);
+    margin-left: 0;
+    padding-left: 0;
+    font-size: 18px;
 }
