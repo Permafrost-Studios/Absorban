@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement name="Root" style="width: 100%; height: 100%; flex-grow: 1;">
+        <ui:VisualElement name="TitlePlate" style="flex-grow: 1; -unity-font: none;">
+            <ui:Label text="Memories" display-tooltip-when-elided="true" name="Title" style="-unity-text-align: upper-center; font-size: 48px; -unity-font-style: normal; -unity-font: url(&apos;project://database/Assets/UI/Fonts/OriginTech%20personal%20use.otf?fileID=12800000&amp;guid=cb34f9bb5d90158469c09e1014a16ece&amp;type=3#OriginTech personal use&apos;); -unity-font-definition: url(&apos;project://database/Assets/UI/Fonts/OriginTech%20personal%20use%20SDF.asset?fileID=11400000&amp;guid=e303d24ff67987f4891fd5b5adb1bca6&amp;type=2#OriginTech personal use SDF&apos;);" />
+        </ui:VisualElement>
+        <ui:VisualElement name="View" style="width: 100%; height: 100%; flex-grow: 1; flex-direction: row;">
+            <ui:ListView focusable="true" name="NameList" show-foldout-header="false" style="height: 100%; width: 25%; flex-grow: 1;" />
+            <ui:ScrollView name="ReadView" style="width: 100%; height: 100%; flex-grow: 1;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
