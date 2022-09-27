@@ -25,25 +25,27 @@ public class FracturedMemoryManager : MonoBehaviour
 
     private UIDocument document;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_path = "Assets/Savedata/memories.json";
-
-        m_nextID = 0;
-        //Memories = GenerateMemories(m_path);
+    void Awake() {
+        document = GetComponent<UIDocument>();
+        Memories = GenerateMemories(m_path);
 
         discoveredMemories = new List<Memory>();
+        m_path = "Assets/Savedata/memories.json";
+        m_nextID = 0;
+
+        Stub();
     }
 
     void OnEnable()
     {
-        document = GetComponent<UIDocument>();
-        Memories = GenerateMemories(m_path);
+        // document = GetComponent<UIDocument>();
+        // Memories = GenerateMemories(m_path);
+
+        // Stub();
+
+        Debug.Log(discoveredMemories);
         
         InitializeList(document.rootVisualElement);
-
-        Stub();
     }
 
     void Stub() 
@@ -58,7 +60,6 @@ public class FracturedMemoryManager : MonoBehaviour
         TextAsset textMems = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/Savedata/memories.json", typeof(TextAsset));
         string mems = textMems.ToString();
         return JsonConvert.DeserializeObject<Memory[]>(mems);
-        
     }
 
     void InitializeList(VisualElement root) 
@@ -108,7 +109,7 @@ public class FracturedMemoryManager : MonoBehaviour
             }
         }
 
-        InitializeList(document.rootVisualElement);
+        //InitializeList(document.rootVisualElement);
     }
 
     void NameSelected(IEnumerable<object> selectedItems)
