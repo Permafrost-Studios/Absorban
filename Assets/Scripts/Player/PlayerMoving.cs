@@ -6,10 +6,10 @@ public class PlayerMoving : MonoBehaviour
 
 	[SerializeField] private Rigidbody2D playerBody;
 
-
 	[SerializeField] private float sprintMultiplier;
 	
 	[SerializeField] private float m_speedmult;
+	
 	public float jumpVel;
 	public float playerWidth;
 	public int extraJumpCounter;
@@ -19,34 +19,35 @@ public class PlayerMoving : MonoBehaviour
 	private float m_playerVelocityY;
 
 	private bool m_isGrounded; 
-	private bool facingRight;
+	public bool facingRight;
 
 	[SerializeField] public LayerMask whatIsGround;
-	[SerializeField] private GameObject groundCheckObj;
+	[SerializeField] private GameObject m_groundCheckObj;
 	
-    void Awake() {
+    void Start() {
+		
 		m_speedmult = 10;
 		sprintMultiplier = 1;
 		m_privJumpCounter = extraJumpCounter;
+		
     }
 	
 
-    void FixedUpdate() {
+    void Update() {
+		
 		if ( Input.GetButtonDown("Sprint") ) {		
 			sprintMultiplier = 2;
 		} else {
 			sprintMultiplier = 1; 
 		}
 		
-		m_isGrounded = Physics2D.OverlapBox(groundCheckObj.transform.position, new Vector2(playerWidth, .05f), 0f, whatIsGround);
-		
-		Debug.Log(m_privJumpCounter);
-		
+		m_isGrounded = Physics2D.OverlapBox(m_groundCheckObj.transform.position, new Vector2(playerWidth - .1f, .05f), 0f, whatIsGround);
+
 		if ( m_isGrounded ) {	
 			m_privJumpCounter = extraJumpCounter;
 		} 
 		
-		if ( Input.GetButtonDown("Jump") ) {
+		if ( Input.GetKeyDown(KeyCode.Space) ) {
 			if ( m_isGrounded ) { 
 				Jump(); 
 			} else if ( m_privJumpCounter > 0 ) {
@@ -54,6 +55,7 @@ public class PlayerMoving : MonoBehaviour
 				m_privJumpCounter--;
 			}
 		}
+		
 		
 
 		m_playerVelocityX = Input.GetAxisRaw("Horizontal") * m_speedmult * sprintMultiplier;
