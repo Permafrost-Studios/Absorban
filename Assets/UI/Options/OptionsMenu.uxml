@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="OptionListEntry" src="project://database/Assets/UI/Options/OptionListEntry.uxml?fileID=9197481963319205126&amp;guid=cb4a0c41dc0a1b00aa635f30759c03e7&amp;type=3#OptionListEntry" />
+    <Style src="project://database/Assets/UI/button.uss?fileID=7433441132597879392&amp;guid=6accf87dc989098628c70455ff52b894&amp;type=3#button" />
+    <Style src="project://database/Assets/UI/Options/options.uss?fileID=7433441132597879392&amp;guid=94e7a33b56d63736cbade118c064ae0b&amp;type=3#options" />
+    <ui:VisualElement name="ContainerContainer" style="align-items: center; justify-content: flex-start; flex-wrap: nowrap; flex-direction: column; background-color: rgb(36, 33, 33); flex-grow: 1;">
+        <ui:VisualElement focusable="false" style="display: flex; flex-grow: 1; height: 10%; align-items: center; margin-top: 0; padding-top: 5%; padding-bottom: 0; width: 100%; justify-content: center; min-height: 40px; min-width: 200px;">
+            <ui:Label text="Options" display-tooltip-when-elided="true" name="title" style="-unity-font: none; -unity-font-style: bold; font-size: 50px; color: rgb(212, 156, 117); -unity-text-align: upper-left; flex-grow: 1; flex-shrink: 1; -unity-background-image-tint-color: rgb(178, 180, 197); padding-right: 0; padding-left: 0; height: 68px; width: 202px;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="OptionsContainer" style="flex-grow: 1; width: 50%; height: 50%;">
+            <ui:Instance template="OptionListEntry" name="OptionListEntry" />
+            <ui:Instance template="OptionListEntry" name="OptionListEntry" />
+            <ui:Instance template="OptionListEntry" name="OptionListEntry" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: space-between; margin-bottom: 5px; padding-bottom: 0; width: 100%; height: 8%; max-height: 8%;">
+            <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="Return" class="button-slanted" style="-unity-font-style: bold; margin-bottom: 0; padding-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; height: 100%; width: 25%; flex-grow: 1; flex-shrink: 1; -unity-text-outline-width: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
