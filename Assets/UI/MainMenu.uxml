@@ -4,7 +4,7 @@
         <ui:VisualElement focusable="false" style="display: flex; flex-grow: 1; height: 20%; align-items: center; margin-top: 0; padding-top: 5%; padding-bottom: 5px; width: 100%;">
             <ui:Label text="Goedelban" display-tooltip-when-elided="true" name="title" style="-unity-font: none; -unity-font-style: bold; font-size: 50px; color: rgb(212, 156, 117); -unity-text-align: upper-left; flex-grow: 1; flex-shrink: 1; -unity-background-image-tint-color: rgb(178, 180, 197); padding-top: 0; padding-right: 0; padding-left: 0;" />
         </ui:VisualElement>
-        <ui:VisualElement style="width: 100%; flex-grow: 1; flex-basis: 70%;">
+        <ui:VisualElement name="ButtonContainerContainer" style="width: 100%; flex-grow: 1; flex-basis: 70%;">
             <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; height: 479px; width: 528px; justify-content: center; left: auto; align-items: stretch; top: auto; bottom: auto; padding-top: 0; padding-bottom: 10%; transform-origin: left top; max-width: 20%; min-width: 40px;">
                 <ui:Button display-tooltip-when-elided="true" name="Start" class="button-main" style="flex-grow: 1; margin-left: 0; padding-left: 0; margin-bottom: 0; margin-top: 0; height: auto; flex-shrink: 1; padding-top: 0; padding-bottom: 0; align-items: flex-start; justify-content: center; margin-right: 0; padding-right: 0;">
                     <ui:Label text="Start" display-tooltip-when-elided="true" class="button-main-text" style="padding-left: 10%;" />
