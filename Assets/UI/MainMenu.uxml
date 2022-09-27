@@ -6,7 +6,7 @@
         </ui:VisualElement>
         <ui:VisualElement name="ButtonContainerContainer" style="width: 100%; flex-grow: 1; flex-basis: 70%;">
             <ui:VisualElement name="ButtonContainer" style="flex-grow: 1; height: 479px; width: 528px; justify-content: center; left: auto; align-items: stretch; top: auto; bottom: auto; padding-top: 0; padding-bottom: 10%; transform-origin: left top; max-width: 20%; min-width: 40px;">
-                <ui:Button display-tooltip-when-elided="true" name="Start" class="button-main" style="flex-grow: 1; margin-left: 0; padding-left: 0; margin-bottom: 0; margin-top: 0; height: auto; flex-shrink: 1; padding-top: 0; padding-bottom: 0; align-items: flex-start; justify-content: center; margin-right: 0; padding-right: 0;">
+                <ui:Button display-tooltip-when-elided="true" name="Start" class="button-main" style="flex-grow: 1; margin-left: 0; padding-left: 0; margin-bottom: 0; margin-top: 0; height: auto; flex-shrink: 1; padding-top: 0; padding-bottom: 0; align-items: flex-start; justify-content: center; margin-right: 0; padding-right: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0;">
                     <ui:Label text="Start" display-tooltip-when-elided="true" class="button-main-text" style="padding-left: 10%;" />
                 </ui:Button>
                 <ui:Button display-tooltip-when-elided="true" name="Options" class="button-main" style="flex-grow: 1; flex-shrink: 1; margin-left: 0; padding-left: 0; margin-bottom: 0; margin-top: 0; padding-top: 0; padding-bottom: 0; align-items: flex-start; justify-content: center;">

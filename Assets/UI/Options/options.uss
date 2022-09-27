@@ -1,0 +1,6 @@
+.optionslist {
+    --unity-item-height: 16;
+    width: 50%;
+    height: 50%;
+    flex-grow: 1;
+}

@@ -1,0 +1,25 @@
+#EntryObject {
+    flex-grow: 4;
+    height: 80%;
+    width: 82%;
+}
+
+#Entry {
+    align-items: flex-start;
+    flex-grow: 0;
+    height: 60px;
+    background-image: url('project://database/Assets/UI/button.png?fileID=2800000&guid=983d8dedb2b5dfca3afbad53b89d46c1&type=3#button');
+}
+
+#EntryName {
+    flex-grow: 1;
+    width: 100%;
+    height: 20%;
+    flex-shrink: 2;
+    color: rgba(241, 231, 231, 255);
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
