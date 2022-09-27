@@ -5,7 +5,9 @@
         </ui:VisualElement>
         <ui:VisualElement name="View" style="width: 100%; height: 100%; flex-grow: 1; flex-direction: row;">
             <ui:ListView focusable="true" name="NameList" show-foldout-header="false" style="height: 100%; width: 25%; flex-grow: 1;" />
-            <ui:ScrollView name="ReadView" style="width: 100%; height: 100%; flex-grow: 1;" />
+            <ui:ScrollView name="ReadView" style="width: 100%; height: 100%; flex-grow: 1;">
+                <ui:Label text="Label" display-tooltip-when-elided="true" name="Content" style="width: 100%; height: 100%;" />
+            </ui:ScrollView>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

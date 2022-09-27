@@ -5,64 +5,92 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine.UIElements;
 using System;
+using UnityEditor;
 
-
+//Part of this script was reused from a tutorial on ListView elements in the Unity UI Toolkit: https://docs.unity3d.com/Manual/UIE-HowTo-CreateRuntimeUI.html
 public class FracturedMemoryManager : MonoBehaviour
-{
+{    
     private string m_path;
     private Memory[] Memories;
     private int m_nextID;
 
-    private List<string> m_storyList = new List<string>();
-    private List<string> m_nameList = new List<string>();
+    [SerializeField]
+    VisualTreeAsset nameTemplate;
+
+    private List<Memory> discoveredMemories;
     
     public ListView displayNameList;
-    public ScrollView displaystoryList;
+    public ScrollView displayStory;
+    public Label storyContent;
+
+    private UIDocument document;
 
     // Start is called before the first frame update
     void Start()
     {
-        //m_path = wherever tf i need to put it in the game files
+        m_path = "Assets/Savedata/memories.json";
 
         m_nextID = 0;
-        Memories = GenerateMemories(m_path);
+        //Memories = GenerateMemories(m_path);
+
+        discoveredMemories = new List<Memory>();
     }
 
     void OnEnable()
     {
-        Func<VisualElement> makeName = () => new Label();
+        document = GetComponent<UIDocument>();
+        Memories = GenerateMemories(m_path);
+        
+        InitializeList(document.rootVisualElement);
 
-        Action<VisualElement, int> bindName = (e, i) => (e as Label).text = m_nameList[i];
-
-        // const int itemHeight = 16;
-
-        displayNameList.selectionType = SelectionType.Multiple;
-
-        displayNameList.onItemsChosen += objects => Debug.Log(objects);
-        displayNameList.onSelectionChange += objects => Debug.Log(objects);
+        Stub();
     }
 
-    // Update is called once per frame
-    void Update()
+    void Stub() 
     {
-        
+        AddMemory("George");
+        AddMemory("Fred");
+        AddMemory("Reynold");
     }
 
     Memory[] GenerateMemories(string path) 
     {
-        if (!File.Exists(path)) 
-        {
-            Debug.LogError("Error: There is no memories file. 🤓");
-            Memory[] placeholder = new Memory[10];
-            return placeholder;
-        } 
-        else
-        {
-            string fileContents = File.ReadAllText(path);
-
-            return JsonConvert.DeserializeObject<Memory[]>(fileContents);
-        }
+        TextAsset textMems = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/Savedata/memories.json", typeof(TextAsset));
+        string mems = textMems.ToString();
+        return JsonConvert.DeserializeObject<Memory[]>(mems);
         
+    }
+
+    void InitializeList(VisualElement root) 
+    {
+        displayNameList = root.Q<ListView>("NameList");
+        displayStory = root.Q<ScrollView>("ReadView");
+        storyContent = root.Q<Label>("Content");
+
+         // Set up a make item function for a list entry
+        displayNameList.makeItem = () =>
+        {
+            var newListEntry = nameTemplate.Instantiate();
+
+            var newListEntryLogic = new ListEntryController();
+
+            newListEntry.userData = newListEntryLogic;
+
+            newListEntryLogic.SetVisualElement(newListEntry);
+
+            return newListEntry;
+        };
+
+        displayNameList.bindItem = (item, index) =>
+        {
+            (item.userData as ListEntryController).SetMemoryData(discoveredMemories[index]);
+        };
+
+        displayNameList.fixedItemHeight = 45;
+
+        displayNameList.itemsSource = discoveredMemories;
+
+        displayNameList.onSelectionChange += NameSelected;
     }
 
     void AddMemory(string name) 
@@ -73,10 +101,44 @@ public class FracturedMemoryManager : MonoBehaviour
             {
                 m.obtained = true;
                 m.ID = m_nextID;
+
+                discoveredMemories.Add(m);
+
                 m_nextID += 1;
-                m_storyList.Add(m.story);
-                m_nameList.Add(m.name);
             }
         }
+
+        InitializeList(document.rootVisualElement);
+    }
+
+    void NameSelected(IEnumerable<object> selectedItems)
+    {
+        // Get the currently selected item directly from the ListView
+        var selectedMemory = displayNameList.selectedItem as Memory;
+
+        // Handle none-selection (Escape to deselect everything)
+        if (selectedMemory == null)
+        {
+            storyContent.text = " ";
+            return;
+        }
+
+        // Fill in character detail
+        storyContent.text = selectedMemory.story;
+    }
+}
+
+public class ListEntryController
+{
+    Label m_Label;
+
+    public void SetVisualElement(VisualElement visualElement)
+    {
+        m_Label = visualElement.Q<Label>("Name");
+    }
+
+    public void SetMemoryData(Memory mem)
+    {
+        m_Label.text = mem.name;
     }
 }
