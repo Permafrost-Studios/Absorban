@@ -6,7 +6,10 @@ using System;
 
 public class OptionsMenu : MonoBehaviour
 {
-    private List<VisualElement> items;
+    private List<SettingEntry> settingslist = new List<SettingEntry>();
+
+
+
     [SerializeField] private VisualTreeAsset m_OptionEntryTemplate;
     [SerializeField] private UIDocument m_UIDocument;
 
@@ -19,7 +22,12 @@ public class OptionsMenu : MonoBehaviour
         VisualElement rootVis =  m_UIDocument.rootVisualElement;
         Button quit = rootVis.Q<Button>("Return");
         quit.clicked += OnReturnClicked;
-        PopulateListView(rootVis);
+
+        // settingslist = new List<SettingEntry>(){
+        //     new SettingEntry ("Volume", new MinMaxSlider())
+        // };
+        PopulateSettingsList();
+        PopulateElems(rootVis);
     }
     
     void OnReturnClicked() {
@@ -31,45 +39,34 @@ public class OptionsMenu : MonoBehaviour
 
     #nullable restore
 
+    void PopulateElems(VisualElement rootVis) {
+        VisualElement optcontainer = rootVis.Q<VisualElement>("OptionsContainer");
 
-    void PopulateListView(VisualElement rootVis) {
-        Debug.Log("Attempt PopulateListView");
-        ListView optlist = rootVis.Q<ListView>("OptionsList");
-        
-        items = new List<VisualElement>();
+        foreach (var item in settingslist) {
+            var elem = m_OptionEntryTemplate.Instantiate();
+            
+            elem.Q<Label>("EntryName").text = item.name;
+            elem.Q<VisualElement>("EntryObject").Add(item.element);
 
-        optlist.bindItem = OnBindItem;
-        optlist.makeItem = OnMakeItem;
-        optlist.itemsSource = items;
-        optlist.fixedItemHeight = 80;
+            optcontainer.Add(elem);
+        }
+    }
 
-        optlist.onItemsChosen += objects => Debug.Log(objects);
-
-
-        var temp = new MinMaxSlider(0f,100f,0f,100f);
-        var temp2 = new MinMaxSlider(1f,100f,0f,100f);
-        items.Add(temp);
-        items.Add(temp2);
-
+    void PopulateSettingsList() {
+        settingslist.Add(new SettingEntry("Master Volume", new Slider(0f,100f)));
+        settingslist.Add(new SettingEntry("Music Volume", new Slider(0f,100f,0f,100f)));
+        settingslist.Add(new SettingEntry("SFX Volume", new Slider(0f,100f,0f,100f)));
 
     }
 
-    void OnBindItem(VisualElement elem, int idx) {
-        ElemData elm = (elem as ElemData);
-        elm._lbl.text = "hello";
-        // elem.user 
-        // (elem as Label).text = "hello";
-    }
 
-    VisualElement OnMakeItem() {
-        var newListEntry = m_OptionEntryTemplate.Instantiate();
-        // newListEntry.
-        return newListEntry;
-    }
+    struct SettingEntry {
+        public SettingEntry(string _nam, VisualElement _elm) {
+            this.name = _nam;
+            this.element = _elm;   
+        }
 
-    class ElemData : VisualElement {
-        public Label _lbl;
-        public VisualElement _elem;
-    }
-
+        public string name;
+        public VisualElement element;
+    }    
 }

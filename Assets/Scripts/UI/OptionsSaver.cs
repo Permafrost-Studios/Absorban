@@ -6,9 +6,6 @@ using Newtonsoft.Json;
 
 public class OptionsSaver : MonoBehaviour
 {
-    void Awake() {
-    }
-
     bool CheckOptionsExist() {
         return File.Exists(Application.persistentDataPath + "/options.json");
     }
