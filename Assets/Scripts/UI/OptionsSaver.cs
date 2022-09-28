@@ -4,48 +4,57 @@ using UnityEngine;
 using System.IO;
 using Newtonsoft.Json;
 
-public class OptionsSaver : MonoBehaviour
-{
-    bool CheckOptionsExist() {
+public class OptionsSaver : ScriptableObject {
+    public bool CheckOptionsExist() {
         return File.Exists(Application.persistentDataPath + "/options.json");
     }
 
-    void WriteDefaultOpts() {
-        if (!CheckOptionsExist()) {
-            OptionData dat = new OptionData();
-            dat.mastervolume = 1f;
-            dat.sfxvolume = 1f;
-            dat.musicvolume = 1f;
-            string serialdat = JsonConvert.SerializeObject(dat);
-
-            File.WriteAllText(Application.persistentDataPath + "/options.json", serialdat);
-        }
+    public void WriteDefaultOpts() {
+        string serialdat = JsonConvert.SerializeObject(defaultsettings);
+        File.WriteAllText(Application.persistentDataPath + "/options.json", serialdat);
+        
+        Debug.Log("DEFAULT Options written to: " + Application.persistentDataPath + "/options.json");
     }
 
-    OptionData ReadOpts() {
-        if (!CheckOptionsExist()) {
+    public Hashtable ReadOpts() {
+        if (CheckOptionsExist()) {
             string serialdat = File.ReadAllText(Application.persistentDataPath + "/options.json");
-            return JsonConvert.DeserializeObject<OptionData>(serialdat);
+            return JsonConvert.DeserializeObject<Hashtable>(serialdat);
         } else {
             WriteDefaultOpts();
-            OptionData dat = new OptionData();
-            dat.mastervolume = 1f;
-            dat.sfxvolume = 1f;
-            dat.musicvolume = 1f;
-            return dat;
+            return defaultsettings;
         }
     }
 
-    void UpdateOptions(OptionData newdat) {
-        string serialdat = JsonConvert.SerializeObject(newdat);
-        File.WriteAllText(Application.persistentDataPath + "/options.json", serialdat);
+    public void UpdateOptions(string key, object val) {
+        var table = ReadOpts();
+        if (table.ContainsKey(key) && 
+            table[key].GetType() == val.GetType()) 
+        {
+            table[key] = val;
+            string serialdat = JsonConvert.SerializeObject(table);
+            File.WriteAllText(Application.persistentDataPath + "/options.json", serialdat);
+        }            
     }
 
-    [System.Serializable]
-    public struct OptionData {
-        public float mastervolume;
-        public float musicvolume;
-        public float sfxvolume;
+    // This specialisation must exist because the JSONSerializer reads/writes floats as doubles (write float reads double)
+    public void UpdateOptions(string key, float val) {
+        var table = ReadOpts();
+        if (table.ContainsKey(key) && 
+            table[key] is double) 
+        {
+            table[key] = val;
+            string serialdat = JsonConvert.SerializeObject(table);
+            File.WriteAllText(Application.persistentDataPath + "/options.json", serialdat);
+        }            
     }
+
+    
+    public static Hashtable defaultsettings = new Hashtable{
+        {"main_vol",100d},
+        {"music_vol",100d},
+        {"sfx_vol",100d}
+    };
+
 
 }
