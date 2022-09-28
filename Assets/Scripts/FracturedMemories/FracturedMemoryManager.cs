@@ -7,6 +7,8 @@ using UnityEngine.UIElements;
 using System;
 using UnityEditor;
 
+using UnityEngine.SceneManagement;
+
 //Part of this script was reused from a tutorial on ListView elements in the Unity UI Toolkit: https://docs.unity3d.com/Manual/UIE-HowTo-CreateRuntimeUI.html
 public class FracturedMemoryManager : MonoBehaviour
 {    
@@ -25,7 +27,10 @@ public class FracturedMemoryManager : MonoBehaviour
 
     private UIDocument document;
 
-    void Awake() {
+    void Awake() 
+    {
+        DontDestroyOnLoad(this.gameObject);
+
         document = GetComponent<UIDocument>();
         Memories = GenerateMemories(m_path);
 
@@ -34,18 +39,27 @@ public class FracturedMemoryManager : MonoBehaviour
         m_nextID = 0;
 
         Stub();
+
+        InitializeList(document.rootVisualElement);
+
+        document.enabled = false;
     }
 
-    void OnEnable()
-    {
-        // document = GetComponent<UIDocument>();
-        // Memories = GenerateMemories(m_path);
+    void Update() {
+        if(Input.GetKeyDown(KeyCode.M)) 
+        {
+            document.enabled = !document.enabled;
 
-        // Stub();
+            if(document.enabled == true) 
+            {
+                InitializeList(document.rootVisualElement);
+            }
+        }
 
-        Debug.Log(discoveredMemories);
-        
-        InitializeList(document.rootVisualElement);
+        if(Input.GetKeyDown(KeyCode.L)) 
+        {
+            SceneManager.LoadScene("Map 2");
+        }
     }
 
     void Stub() 
@@ -109,7 +123,10 @@ public class FracturedMemoryManager : MonoBehaviour
             }
         }
 
-        //InitializeList(document.rootVisualElement);
+        if(document.enabled) 
+        {
+            InitializeList(document.rootVisualElement);
+        }
     }
 
     void NameSelected(IEnumerable<object> selectedItems)

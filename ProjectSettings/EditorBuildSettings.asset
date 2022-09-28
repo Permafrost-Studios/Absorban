@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testing-playercont.unity
     guid: 7ad227324420e9c229ce8b8bf1c4accf
+  - enabled: 1
+    path: Assets/Scenes/Map 2.unity
+    guid: 220ea9afbb4b4d940935327b3ea5a277
   m_configObjects: {}
