@@ -4,30 +4,55 @@ using UnityEngine;
 
 public class ParallaxBackground : MonoBehaviour
 {
-    [SerializeField] private Camera cam;
+    [SerializeField] private Camera m_cam;
     public float parallaxValue;
-
-    [SerializeField] private Vector2 length;
-    [SerializeField] private Vector2 offsetpos;
+    private Vector2 m_length;
+    [SerializeField] private Vector2 m_camlength;
+    private Vector2 m_offsetpos;
+    [SerializeField] private GameObject m_bg;
 
     // Start is called before the first frame update
     void Start() {
-        length = GetComponentInChildren<SpriteRenderer>().bounds.size;
-        offsetpos = cam.transform.localPosition;
+        m_length = GetComponentInChildren<SpriteRenderer>().bounds.size;
+        m_offsetpos = m_cam.transform.localPosition;
+        m_camlength = m_cam.sensorSize;
+
+        if (!m_bg) {
+            m_bg = FindObjectOfType<GameObject>();
+        }
+
+        Instantiate(m_bg,new Vector3(m_length.x,0f,0f), Quaternion.identity, this.transform);
+        Instantiate(m_bg,new Vector3(-m_length.x,0f,0f), Quaternion.identity, this.transform);
     }
 
     // Update is called once per frame
     void Update() {
-        Vector2 relativepos = cam.transform.localPosition*parallaxValue;
+        Vector2 relativepos = m_cam.transform.localPosition*parallaxValue;
         // Out of bounds left = negative value and vice-versa
-        Vector2 temp = (Vector2) cam.transform.position-(relativepos+offsetpos);
+        Vector2 temp = (Vector2) m_cam.transform.position-(relativepos+m_offsetpos);
 
-        if(temp.x>(length.x/2)) {
-            offsetpos.x += length.x;
-        } else if (temp.x<(-length.x/2)) {
-            offsetpos.x -= length.x;
+        // Shift if too far left/right
+        if(temp.x>(m_length.x/2)) {
+            m_offsetpos.x += m_length.x;
+        } else if (temp.x<(-m_length.x/2)) {
+            m_offsetpos.x -= m_length.x;
         }
+        
+        transform.localPosition = relativepos+m_offsetpos;
 
-        transform.localPosition = relativepos+offsetpos;  
+
+        // Causes flashes :(
+        // Assuming the image can be tiled, tile it when the camera can see across a transition
+        // if( m_camlength.x/2 > ((m_length.x/2)-temp.x)) {
+        //     m_bgclone.transform.localPosition = new Vector2(
+        //         m_length.x,
+        //         m_bgclone.transform.localPosition.y
+        //     );
+        // } else {
+        //     m_bgclone.transform.localPosition = new Vector2(
+        //         -m_length.x,
+        //         m_bgclone.transform.localPosition.y
+        //     );
+        // }
     }
 }
