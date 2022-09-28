@@ -37,22 +37,7 @@ public class ParallaxBackground : MonoBehaviour
         } else if (temp.x<(-m_length.x/2)) {
             m_offsetpos.x -= m_length.x;
         }
-        
+
         transform.localPosition = relativepos+m_offsetpos;
-
-
-        // Causes flashes :(
-        // Assuming the image can be tiled, tile it when the camera can see across a transition
-        // if( m_camlength.x/2 > ((m_length.x/2)-temp.x)) {
-        //     m_bgclone.transform.localPosition = new Vector2(
-        //         m_length.x,
-        //         m_bgclone.transform.localPosition.y
-        //     );
-        // } else {
-        //     m_bgclone.transform.localPosition = new Vector2(
-        //         -m_length.x,
-        //         m_bgclone.transform.localPosition.y
-        //     );
-        // }
     }
 }
