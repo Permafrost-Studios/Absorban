@@ -82,20 +82,5 @@ public class OptionsMenu : MonoBehaviour
 
     void RegisterElemCallbacks(VisualElement element, string fieldname) {
         (element as Slider).RegisterValueChangedCallback(x => m_saver.UpdateOptions(fieldname, x.newValue));
-        // settingsdict.Add("Master Volume", new Slider(0f,100f));
-        // settingsdict.Add("Music Volume", new Slider(0f,100f,0f,100f));
-        // settingsdict.Add("SFX Volume", new Slider(0f,100f,0f,100f));
-
-    }
-
-
-    struct SettingEntry {
-        public SettingEntry(string _nam, VisualElement _elm) {
-            this.name = _nam;
-            this.element = _elm;   
-        }
-
-        public string name;
-        public VisualElement element;
-    }    
+    }   
 }
