@@ -34,11 +34,11 @@ public class DeadBody : MonoBehaviour
         switch (m_resources)
         {
             case 0:
-                // other.gameObject.GetComponent<FracturedMemoryManager>().AddMemory(m_name);
+                other.gameObject.GetComponent<MemoryBridge>().MemoryAdd(m_name);
                 // other.gameObject.GetComponent<WeaponManager>().EnableWeapon(drop);
                 break;
             case 1:
-                // other.gameObject.GetComponent<FracturedMemoryManager>().AddMemory(m_name);
+                other.gameObject.GetComponent<MemoryBridge>().MemoryAdd(m_name);
                 break;
             case 2:
                 // other.gameObject.GetComponent<WeaponManager>().EnableWeapon(drop);

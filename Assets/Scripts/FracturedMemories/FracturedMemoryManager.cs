@@ -38,7 +38,7 @@ public class FracturedMemoryManager : MonoBehaviour
         m_path = "Assets/Savedata/memories.json";
         m_nextID = 0;
 
-        Stub();
+        // Stub();
 
         InitializeList(document.rootVisualElement);
 
@@ -62,12 +62,12 @@ public class FracturedMemoryManager : MonoBehaviour
         }
     }
 
-    void Stub() 
-    {
-        AddMemory("George");
-        AddMemory("Fred");
-        AddMemory("Reynold");
-    }
+    // void Stub() 
+    // {
+    //     AddMemory("George");
+    //     AddMemory("Fred");
+    //     AddMemory("Reynold");
+    // }
 
     Memory[] GenerateMemories(string path) 
     {
@@ -108,7 +108,7 @@ public class FracturedMemoryManager : MonoBehaviour
         displayNameList.onSelectionChange += NameSelected;
     }
 
-    void AddMemory(string name) 
+    public void AddMemory(string name) 
     {
         foreach (Memory m in Memories) 
         {
