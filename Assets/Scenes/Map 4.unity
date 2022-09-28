@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arrowDirection: 0
-  arrowForce: 1000
+  arrowForce: 5000
 --- !u!212 &357566472
 SpriteRenderer:
   m_ObjectHideFlags: 0
