@@ -80,5 +80,10 @@ public class PlayerMoving : MonoBehaviour
         newScale.x *= -1;
         transform.localScale = newScale;
     }
+
+	public float returnDirectionMultiplier() 
+	{
+		return (facingRight ? 1 : -1);
+	}
 	
 }
