@@ -1,0 +1,34 @@
+{
+    "name": "WeaponManager",
+    "maps": [
+        {
+            "name": "SwitchToWeapon",
+            "id": "d4aea6ff-eac0-4995-823e-108883c19ed4",
+            "actions": [
+                {
+                    "name": "SwitchWeapon",
+                    "type": "PassThrough",
+                    "id": "e0a9bf1a-4b1d-424e-adfe-9b905e6eb305",
+                    "expectedControlType": "Delta",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "84ea4705-f8bc-4c06-9e40-957e0f27049d",
+                    "path": "<Mouse>/scroll",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

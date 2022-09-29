@@ -3,7 +3,6 @@ using System.Collections.Specialized;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using System;
 
 public class OptionsMenu : MonoBehaviour
 {
