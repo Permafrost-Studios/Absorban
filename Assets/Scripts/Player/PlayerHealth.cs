@@ -32,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
         
         }
 
+        m_currentHealth = Mathf.Clamp(m_currentHealth, -maxHealth, maxHealth);
+
         UpdateHealthBar();
     
     }
