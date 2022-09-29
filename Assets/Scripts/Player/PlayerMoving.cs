@@ -21,11 +21,14 @@ public class PlayerMoving : MonoBehaviour
 	private bool m_isGrounded; 
 	public bool facingRight;
 
+	private Animator anim;
+
 	[SerializeField] public LayerMask whatIsGround;
 	[SerializeField] private GameObject m_groundCheckObj;
 	
     void Start() {
-		
+		playerBody = GetComponent<Rigidbody2D>();
+		anim = GetComponent<Animator>();
 		m_speedmult = 10;
 		sprintMultiplier = 1;
 		m_privJumpCounter = extraJumpCounter;
@@ -67,6 +70,15 @@ public class PlayerMoving : MonoBehaviour
         } else if ( Input.GetAxisRaw("Horizontal") > 0 && !facingRight ) { 
             Flip();  
         } 
+
+		if (Mathf.Abs(m_playerVelocityX) > 0.1f) 
+		{
+			anim.SetBool("isMoving", true);
+		} 
+		else 
+		{
+			anim.SetBool("isMoving", false);	
+		}
 		
     }
 	

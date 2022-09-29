@@ -10,9 +10,12 @@ public class PlayerHealth : MonoBehaviour
 
     private UIDocument document;
     private VisualElement healthBar;
+
+    private Animator anim;
     
     void Start() 
     {
+        anim = GetComponent<Animator>();
         document = GetComponent<UIDocument>();
         healthBar = document.rootVisualElement.Q("Fill");
 
@@ -35,7 +38,8 @@ public class PlayerHealth : MonoBehaviour
         m_currentHealth = Mathf.Clamp(m_currentHealth, -maxHealth, maxHealth);
 
         UpdateHealthBar();
-    
+
+        anim.SetTrigger("Hurts");
     }
 
     void UpdateHealthBar() 
@@ -44,9 +48,10 @@ public class PlayerHealth : MonoBehaviour
     }
     
     void Die() {
-    
-        // Transition to end scene
-        Debug.Log("Lol you died");
+
+        //Respawn you at the start of the level
+        
+        anim.SetTrigger("Dies");
     }
 
     // void Stub() 
