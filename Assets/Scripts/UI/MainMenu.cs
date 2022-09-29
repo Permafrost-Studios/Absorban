@@ -29,7 +29,6 @@ public class MainMenu : MonoBehaviour
     }
 
     void OnOptionsClicked() {
-        Debug.Log("options button clicked");
         Instantiate(m_optionsMenu).GetComponent<OptionsMenu>().SetReturnToObject(this.gameObject);
         this.gameObject.SetActive(false);
     }
