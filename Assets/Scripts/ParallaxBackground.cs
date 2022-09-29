@@ -18,7 +18,7 @@ public class ParallaxBackground : MonoBehaviour
         m_camlength = m_cam.sensorSize;
 
         if (!m_bg) {
-            m_bg = FindObjectOfType<GameObject>();
+            m_bg = this.gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
         }
 
         Instantiate(m_bg,new Vector3(m_length.x,0f,0f), Quaternion.identity, this.transform);
