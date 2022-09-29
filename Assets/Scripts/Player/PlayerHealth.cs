@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
     private float m_currentHealth;
+
+    private UIDocument document;
+    private VisualElement healthBar;
     
-    void Start() {
-    
+    void Start() 
+    {
+        document = GetComponent<UIDocument>();
+        healthBar = document.rootVisualElement.Q("Fill");
+
         m_currentHealth = maxHealth;
-    
+
+        // Stub();
     }
     
     public void TakeDamage(float damageReceived) 
@@ -23,7 +31,14 @@ public class PlayerHealth : MonoBehaviour
             Die();
         
         }
+
+        UpdateHealthBar();
     
+    }
+
+    void UpdateHealthBar() 
+    {
+        healthBar.style.width = new StyleLength(Length.Percent((m_currentHealth/maxHealth) * 100));
     }
     
     void Die() {
@@ -31,4 +46,9 @@ public class PlayerHealth : MonoBehaviour
         // Transition to end scene
         Debug.Log("Lol you died");
     }
+
+    // void Stub() 
+    // {
+    //     TakeDamage(20f);
+    // }
 }
