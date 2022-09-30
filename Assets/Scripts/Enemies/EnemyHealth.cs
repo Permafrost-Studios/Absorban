@@ -6,6 +6,15 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth;
     private float m_currentHealth;
+    public GameObject DeadBody;
+
+    public int weaponDropID;
+
+    public string memoryName;
+
+    public enum Drops {none, weapon, memory, both};
+
+    public Drops drops;
 
     private Animator anim;
     
@@ -34,6 +43,25 @@ public class EnemyHealth : MonoBehaviour
     void Die() {
         
         anim.SetTrigger("Dies");
+
+        GameObject dead = Instantiate(DeadBody);
+
+        switch (drops)
+        {
+            case Drops.both:
+                dead.GetComponent<DeadBody>().Init(weaponDropID, memoryName);
+                break;
+            case Drops.weapon:
+                dead.GetComponent<DeadBody>().Init(weaponDropID, memoryName);
+                break;
+            case Drops.memory:
+                dead.GetComponent<DeadBody>().Init(memoryName);
+                break;
+            case Drops.none:
+                break;
+            default:
+                break;
+        }  
         
         Destroy(gameObject);
     }
