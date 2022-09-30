@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1557862154090605803}
   - component: {fileID: 1557862154090605802}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RespawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1557862154419422579}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player And Respawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -140,6 +140,22 @@ PrefabInstance:
     - target: {fileID: 2156532841513377065, guid: 91a943dccb20295419c488edf6254f38, type: 3}
       propertyPath: m_Name
       value: Player Revised
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156532841513377065, guid: 91a943dccb20295419c488edf6254f38, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156532841540343552, guid: 91a943dccb20295419c488edf6254f38, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156532841540343552, guid: 91a943dccb20295419c488edf6254f38, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.414
+      objectReference: {fileID: 0}
+    - target: {fileID: 2156532841540343553, guid: 91a943dccb20295419c488edf6254f38, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5628641682393670785, guid: 91a943dccb20295419c488edf6254f38, type: 3}
       propertyPath: m_Size.x

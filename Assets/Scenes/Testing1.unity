@@ -1215,6 +1215,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1913346423142069407, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913346423142069407, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.67
+      objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364214, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_BodyType
       value: 1
@@ -1224,8 +1232,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6200000, guid: a3f80c9ae795b8246841498d9edc2ad6, type: 2}
     - target: {fileID: 1913346423324364215, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: attackRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913346423324364215, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: isFacingRight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364216, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_Name
@@ -1368,6 +1380,10 @@ PrefabInstance:
     - target: {fileID: 6048748782220638631, guid: 7a88c50e7186f9e4fac34b0227520abf, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6048748782220638633, guid: 7a88c50e7186f9e4fac34b0227520abf, type: 3}
+      propertyPath: facingRight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6048748782220638634, guid: 7a88c50e7186f9e4fac34b0227520abf, type: 3}
       propertyPath: m_RootOrder
