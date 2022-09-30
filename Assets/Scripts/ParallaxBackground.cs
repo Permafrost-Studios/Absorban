@@ -21,8 +21,16 @@ public class ParallaxBackground : MonoBehaviour
             m_bg = this.gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
         }
 
-        Instantiate(m_bg,new Vector3(m_length.x,0f,0f), Quaternion.identity, this.transform);
+        Instantiate(m_bg,new Vector3(m_length.x,0f,0f), Quaternion.identity, this.transform); //Left and right
         Instantiate(m_bg,new Vector3(-m_length.x,0f,0f), Quaternion.identity, this.transform);
+
+        Instantiate(m_bg,new Vector3(m_length.x,m_length.y,0f), Quaternion.identity, this.transform); //Corners
+        Instantiate(m_bg,new Vector3(-m_length.x,-m_length.y,0f), Quaternion.identity, this.transform);
+        Instantiate(m_bg,new Vector3(m_length.x,-m_length.y,0f), Quaternion.identity, this.transform);
+        Instantiate(m_bg,new Vector3(-m_length.x,m_length.y,0f), Quaternion.identity, this.transform);
+
+        Instantiate(m_bg,new Vector3(0f,m_length.y,0f), Quaternion.identity, this.transform); //Top and Bottom
+        Instantiate(m_bg,new Vector3(0f,-m_length.y,0f), Quaternion.identity, this.transform);
     }
 
     // Update is called once per frame
@@ -36,6 +44,12 @@ public class ParallaxBackground : MonoBehaviour
             m_offsetpos.x += m_length.x;
         } else if (temp.x<(-m_length.x/2)) {
             m_offsetpos.x -= m_length.x;
+        }
+
+        if(temp.y>(m_length.y/2)) {
+            m_offsetpos.y += m_length.y;
+        } else if (temp.y<(-m_length.y/2)) {
+            m_offsetpos.y -= m_length.y;
         }
 
         transform.localPosition = relativepos+m_offsetpos;
