@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth;
     private float m_currentHealth;
+
+    private Animator anim;
     
     void Start() {
     
