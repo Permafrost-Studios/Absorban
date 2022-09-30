@@ -49,15 +49,19 @@ public class EnemyHealth : MonoBehaviour
         switch (drops)
         {
             case Drops.both:
+                dead.transform.position = gameObject.transform.position;
                 dead.GetComponent<DeadBody>().Init(weaponDropID, memoryName);
                 break;
             case Drops.weapon:
+                dead.transform.position = gameObject.transform.position;
                 dead.GetComponent<DeadBody>().Init(weaponDropID, memoryName);
                 break;
             case Drops.memory:
+                dead.transform.position = gameObject.transform.position;
                 dead.GetComponent<DeadBody>().Init(memoryName);
                 break;
             case Drops.none:
+                Destroy(dead);
                 break;
             default:
                 break;

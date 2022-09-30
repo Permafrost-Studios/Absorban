@@ -8,6 +8,9 @@ public class Spikes : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) 
     {
-        other.gameObject.GetComponent<PlayerHealth>().TakeDamage(trapDamage);
+        if(other.gameObject.layer == 7) 
+        {
+            other.gameObject.GetComponent<PlayerHealth>().TakeDamage(trapDamage);
+        }
     }
 }

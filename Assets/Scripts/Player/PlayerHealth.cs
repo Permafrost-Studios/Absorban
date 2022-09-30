@@ -29,16 +29,9 @@ public class PlayerHealth : MonoBehaviour
 
         // Stub();
     }
-	
-	void Update() {
-		
-		Debug.Log(m_currentHealth <= 0);
-		
-	}
     
     public void TakeDamage(float damageReceived) 
     {
-        Debug.Log("Damage Took");
         m_currentHealth -= damageReceived;
 
         if (m_currentHealth <= 0) {

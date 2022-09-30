@@ -34,6 +34,7 @@ public class FracturedMemoryManager : MonoBehaviour
         notifObj = GameObject.Find("Notifier");
 
         DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(notifObj);
 
         document = GetComponent<UIDocument>();
         Memories = GenerateMemories(m_path);
