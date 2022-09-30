@@ -14,10 +14,11 @@ public class WeaponProjectile : MonoBehaviour
         body.AddForce(transform.right * shootForce * directionMultiplier);
     }
 
+    // pass a NORMALISED vector in
     public void Shoot(float damage, float shootForce, Vector2 direction) {
         m_damage = damage;
         body = GetComponent<Rigidbody2D>();
-        body.AddForce(direction.normalized * shootForce);
+        body.AddForce(direction * shootForce);
     }
 
     void OnCollisionEnter2D(Collision2D other) 
