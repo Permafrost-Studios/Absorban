@@ -15,8 +15,8 @@ public class EndMenu : MonoBehaviour
         
         Label descriptionLabel = document.rootVisualElement.Q<Label>("Description");
         
-        Button exitButton = document.rootVisualElement.Q<Button>("Description");
-        Button replayButton = document.rootVisualElement.Q<Button>("Description");
+        Button exitButton = document.rootVisualElement.Q<Button>("ExitButton");
+        Button replayButton = document.rootVisualElement.Q<Button>("ReplayButton");
         
         descriptionLabel.text = "Thank you for playing our game.";
 

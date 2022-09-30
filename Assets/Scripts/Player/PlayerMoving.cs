@@ -27,7 +27,7 @@ public class PlayerMoving : MonoBehaviour
 	[SerializeField] private GameObject m_groundCheckObj;
 	
     void Start() {
-		playerBody = GetComponent<Rigidbody2D>();
+		playerBody = GetComponent<Rigidbody2D>();  
 		anim = GetComponent<Animator>();
 		m_speedmult = 10;
 		sprintMultiplier = 1;
