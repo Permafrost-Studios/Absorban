@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private UIDocument m_UIDocument;
     [SerializeField] private GameObject m_optionsMenu;
+	
+	
 	
     // Get UI Document and register callbacks, MUST be OnEnable
     void OnEnable() {
@@ -27,6 +30,11 @@ public class MainMenu : MonoBehaviour
 
     void OnStartClicked() {
         Debug.Log("start button clicked");
+		
+		new OptionsSaver() a;
+
+		var b = a.ReadOpts();
+
     }
 
     void OnOptionsClicked() {

@@ -51,9 +51,9 @@ public class OptionsSaver : ScriptableObject {
 
     
     public static Hashtable defaultsettings = new Hashtable{
-        {"main_vol",100d},
-        {"music_vol",100d},
-        {"sfx_vol",100d}
+        {"main_vol",50d},
+        {"music_vol",50d},
+        {"sfx_vol",50d}
     };
 
 
