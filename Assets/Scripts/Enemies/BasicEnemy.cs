@@ -27,7 +27,7 @@ public class BasicEnemy : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
 
         //For roaming
-        body.velocity = new Vector2(moveSpeed, body.velocity.y);
+        body.velocity = new Vector2(moveSpeed * (m_facingRight ? 1 : -1), body.velocity.y);
     }
 
     // Update is called once per frame
@@ -59,6 +59,6 @@ public class BasicEnemy : MonoBehaviour
         newScale.x *= -1;
         transform.localScale = newScale;
 
-        body.velocity = new Vector2(-body.velocity.x, body.velocity.y);
+        body.velocity = new Vector2(body.velocity.x * (m_facingRight ? 1 : -1), body.velocity.y);
     }
 }
