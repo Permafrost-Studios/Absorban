@@ -29,7 +29,7 @@ public class ParallaxBackground : MonoBehaviour
     void Update() {
         Vector2 relativepos = m_cam.transform.localPosition*parallaxValue;
         // Out of bounds left = negative value and vice-versa
-        Vector2 temp = (Vector2) m_cam.transform.position-(relativepos+m_offsetpos);
+        Vector2 temp = (Vector2) m_cam.transform.localPosition-(relativepos+m_offsetpos);
 
         // Shift if too far left/right
         if(temp.x>(m_length.x/2)) {
