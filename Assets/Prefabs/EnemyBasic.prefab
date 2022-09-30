@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913346423142069406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.685, y: -0.617, z: 0}
+  m_LocalPosition: {x: -0.685, y: -0.684, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1913346423324364214}
   - component: {fileID: 1913346423324364213}
   - component: {fileID: 1913346423324364215}
+  - component: {fileID: 4418395045576766222}
   m_Layer: 8
   m_Name: EnemyBasic
   m_TagString: Untagged
@@ -157,7 +158,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a3f80c9ae795b8246841498d9edc2ad6, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -203,6 +204,20 @@ MonoBehaviour:
   attackDamage: 100
   moveSpeed: 4
   isFacingRight: 0
+  attackRate: 2
+--- !u!114 &4418395045576766222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913346423324364216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dac1ae3b6823549ac4e4b5b13a0e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &1913346424172722962
 GameObject:
   m_ObjectHideFlags: 0
