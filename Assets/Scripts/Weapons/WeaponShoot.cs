@@ -24,7 +24,7 @@ public class WeaponShoot : MonoBehaviour
     private Vector3 normalscale;
     // Start is called before the first frame update
     void Start() {
-        m_remainingCooldown = shootCooldown;
+        m_remainingCooldown = 0f;
         m_moving = this.gameObject.transform.parent.parent.gameObject.GetComponent<PlayerMoving>();
         weaponlength = this.GetComponent<SpriteRenderer>().bounds.extents.x;      
 
@@ -62,7 +62,7 @@ public class WeaponShoot : MonoBehaviour
                 normalscale.z);
         }
 
-        if(semiorautomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1")) {
+        if((semiorautomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1")) && (m_remainingCooldown < 0f)) {
             // Spawn bullet at the tip of the weapon
             var tfm = this.transform.TransformPoint(this.transform.localPosition + new Vector3(weaponlength,0f,0f));
 

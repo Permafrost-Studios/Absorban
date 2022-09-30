@@ -39,6 +39,7 @@ public class WeaponManager : MonoBehaviour
         // All in child-indexes, so 0-9
         currentActive = 0;
         discoveredWeapons =  new List<GameObject>();
+        // discoveredWeapons.Add(WeaponArchive[0]);
         RegisterCallbacks();
 
         // Stub();
