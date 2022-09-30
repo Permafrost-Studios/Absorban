@@ -1200,7 +1200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDamage: 100
+  trapDamage: 25
 --- !u!212 &318363917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1772,8 +1772,6 @@ GameObject:
   m_Component:
   - component: {fileID: 398146040}
   - component: {fileID: 398146042}
-  - component: {fileID: 398146043}
-  - component: {fileID: 398146041}
   m_Layer: 0
   m_Name: Isometric Diamond (2)
   m_TagString: Untagged
@@ -1796,19 +1794,6 @@ Transform:
   m_Father: {fileID: 1807468850}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &398146041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398146039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &398146042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1861,35 +1846,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &398146043
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 398146039}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &405898342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,6 +3213,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 683213792}
+  - component: {fileID: 683213794}
+  - component: {fileID: 683213793}
   m_Layer: 0
   m_Name: GameObject (7)
   m_TagString: Untagged
@@ -3281,6 +3239,45 @@ Transform:
   m_Father: {fileID: 1577581989}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &683213793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683213791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapDamage: 50
+--- !u!61 &683213794
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 683213791}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4739647, y: -0.2658825}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.9479294, y: 2.2716103}
+  m_EdgeRadius: 0
 --- !u!1 &691928496
 GameObject:
   m_ObjectHideFlags: 0
@@ -3485,8 +3482,6 @@ GameObject:
   m_Component:
   - component: {fileID: 714315512}
   - component: {fileID: 714315514}
-  - component: {fileID: 714315515}
-  - component: {fileID: 714315513}
   m_Layer: 0
   m_Name: Isometric Diamond (1)
   m_TagString: Untagged
@@ -3509,19 +3504,6 @@ Transform:
   m_Father: {fileID: 1807468850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714315513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714315511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &714315514
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3574,35 +3556,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &714315515
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714315511}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &717504851
 GameObject:
   m_ObjectHideFlags: 0
@@ -4444,7 +4397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDamage: 100
+  trapDamage: 25
 --- !u!212 &789950172
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4662,8 +4615,6 @@ GameObject:
   m_Component:
   - component: {fileID: 798796460}
   - component: {fileID: 798796462}
-  - component: {fileID: 798796463}
-  - component: {fileID: 798796461}
   m_Layer: 0
   m_Name: Isometric Diamond (1)
   m_TagString: Untagged
@@ -4686,19 +4637,6 @@ Transform:
   m_Father: {fileID: 1522126377}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &798796461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798796459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &798796462
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4751,35 +4689,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &798796463
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798796459}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &862630125
 GameObject:
   m_ObjectHideFlags: 0
@@ -5042,8 +4951,6 @@ GameObject:
   m_Component:
   - component: {fileID: 876775676}
   - component: {fileID: 876775678}
-  - component: {fileID: 876775679}
-  - component: {fileID: 876775677}
   m_Layer: 0
   m_Name: Isometric Diamond (2)
   m_TagString: Untagged
@@ -5066,19 +4973,6 @@ Transform:
   m_Father: {fileID: 1343765512}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &876775677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876775675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &876775678
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5131,35 +5025,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &876775679
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876775675}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &890784659
 GameObject:
   m_ObjectHideFlags: 0
@@ -5206,7 +5071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDamage: 100
+  trapDamage: 25
 --- !u!212 &890784662
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10363,8 +10228,6 @@ GameObject:
   m_Component:
   - component: {fileID: 958645507}
   - component: {fileID: 958645509}
-  - component: {fileID: 958645510}
-  - component: {fileID: 958645508}
   m_Layer: 0
   m_Name: Isometric Diamond (1)
   m_TagString: Untagged
@@ -10387,19 +10250,6 @@ Transform:
   m_Father: {fileID: 1343765512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &958645508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958645506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &958645509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10452,35 +10302,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &958645510
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 958645506}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &979668644
 GameObject:
   m_ObjectHideFlags: 0
@@ -10527,7 +10348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDamage: 100
+  trapDamage: 25
 --- !u!212 &979668647
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11720,8 +11541,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1214473776}
   - component: {fileID: 1214473778}
-  - component: {fileID: 1214473779}
-  - component: {fileID: 1214473777}
   m_Layer: 0
   m_Name: Isometric Diamond (2)
   m_TagString: Untagged
@@ -11744,19 +11563,6 @@ Transform:
   m_Father: {fileID: 683213792}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1214473777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214473775}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &1214473778
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11809,35 +11615,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1214473779
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1214473775}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &1234667180
 GameObject:
   m_ObjectHideFlags: 0
@@ -11848,8 +11625,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1234667181}
   - component: {fileID: 1234667183}
-  - component: {fileID: 1234667184}
-  - component: {fileID: 1234667182}
   m_Layer: 0
   m_Name: Isometric Diamond (2)
   m_TagString: Untagged
@@ -11872,19 +11647,6 @@ Transform:
   m_Father: {fileID: 1522126377}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1234667182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234667180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &1234667183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11937,35 +11699,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1234667184
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1234667180}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &1248454144
 GameObject:
   m_ObjectHideFlags: 0
@@ -12074,8 +11807,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1263783508}
   - component: {fileID: 1263783510}
-  - component: {fileID: 1263783511}
-  - component: {fileID: 1263783509}
   m_Layer: 0
   m_Name: Isometric Diamond (1)
   m_TagString: Untagged
@@ -12098,19 +11829,6 @@ Transform:
   m_Father: {fileID: 683213792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1263783509
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263783507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &1263783510
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12163,35 +11881,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1263783511
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1263783507}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &1271304815
 GameObject:
   m_ObjectHideFlags: 0
@@ -13096,6 +12785,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343765512}
+  - component: {fileID: 1343765514}
+  - component: {fileID: 1343765513}
   m_Layer: 0
   m_Name: GameObject (9)
   m_TagString: Untagged
@@ -13122,6 +12813,45 @@ Transform:
   m_Father: {fileID: 1577581989}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1343765513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343765511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapDamage: 50
+--- !u!61 &1343765514
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343765511}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.4991537, y: -0.033563614}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.9383075, y: 2.5886574}
+  m_EdgeRadius: 0
 --- !u!1 &1363345835
 GameObject:
   m_ObjectHideFlags: 0
@@ -13745,6 +13475,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522126377}
+  - component: {fileID: 1522126379}
+  - component: {fileID: 1522126378}
   m_Layer: 0
   m_Name: GameObject (4)
   m_TagString: Untagged
@@ -13769,6 +13501,45 @@ Transform:
   m_Father: {fileID: 1577581989}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1522126378
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522126376}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5163555, y: -0.036882877}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.032711, y: 2.6965933}
+  m_EdgeRadius: 0
+--- !u!114 &1522126379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522126376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapDamage: 50
 --- !u!1 &1535684213
 GameObject:
   m_ObjectHideFlags: 0
@@ -14428,8 +14199,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1630800808}
   - component: {fileID: 1630800810}
-  - component: {fileID: 1630800811}
-  - component: {fileID: 1630800809}
   m_Layer: 0
   m_Name: Isometric Diamond (4)
   m_TagString: Untagged
@@ -14452,19 +14221,6 @@ Transform:
   m_Father: {fileID: 1807468850}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1630800809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630800807}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &1630800810
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14517,35 +14273,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1630800811
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1630800807}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &1635545950
 GameObject:
   m_ObjectHideFlags: 0
@@ -15293,8 +15020,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1741175381}
   - component: {fileID: 1741175383}
-  - component: {fileID: 1741175384}
-  - component: {fileID: 1741175382}
   m_Layer: 0
   m_Name: Isometric Diamond (3)
   m_TagString: Untagged
@@ -15317,19 +15042,6 @@ Transform:
   m_Father: {fileID: 1343765512}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1741175382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741175380}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &1741175383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15382,35 +15094,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1741175384
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1741175380}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &1752205404
 GameObject:
   m_ObjectHideFlags: 0
@@ -15744,6 +15427,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1807468850}
+  - component: {fileID: 1807468852}
+  - component: {fileID: 1807468851}
   m_Layer: 0
   m_Name: GameObject (8)
   m_TagString: Untagged
@@ -15770,6 +15455,45 @@ Transform:
   m_Father: {fileID: 1577581989}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807468851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807468849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapDamage: 50
+--- !u!61 &1807468852
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807468849}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.4991537, y: -0.033563614}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.9383075, y: 2.5886574}
+  m_EdgeRadius: 0
 --- !u!1 &1832426900
 GameObject:
   m_ObjectHideFlags: 0
@@ -17570,8 +17294,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2079474702}
   - component: {fileID: 2079474704}
-  - component: {fileID: 2079474705}
-  - component: {fileID: 2079474703}
   m_Layer: 0
   m_Name: Isometric Diamond (4)
   m_TagString: Untagged
@@ -17594,19 +17316,6 @@ Transform:
   m_Father: {fileID: 1343765512}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2079474703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079474701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &2079474704
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17659,35 +17368,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2079474705
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079474701}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &2085286438
 GameObject:
   m_ObjectHideFlags: 0
@@ -17698,8 +17378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2085286439}
   - component: {fileID: 2085286441}
-  - component: {fileID: 2085286442}
-  - component: {fileID: 2085286440}
   m_Layer: 0
   m_Name: Isometric Diamond (3)
   m_TagString: Untagged
@@ -17722,19 +17400,6 @@ Transform:
   m_Father: {fileID: 1807468850}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2085286440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085286438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapDamage: 100
 --- !u!212 &2085286441
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17787,35 +17452,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &2085286442
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2085286438}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.5}
-    newSize: {x: 1, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.25}
-      - {x: -0.5, y: 0}
-      - {x: 0, y: -0.25}
-      - {x: 0.5, y: 0}
 --- !u!1 &2095626703
 GameObject:
   m_ObjectHideFlags: 0
@@ -30664,7 +30300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDamage: 100
+  trapDamage: 25
 --- !u!212 &2106758682
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30918,7 +30554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609bbc9fda6614743b5cc3359edc1d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trapDamage: 100
+  trapDamage: 25
 --- !u!212 &2138283081
 SpriteRenderer:
   m_ObjectHideFlags: 0

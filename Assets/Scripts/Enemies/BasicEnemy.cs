@@ -15,6 +15,9 @@ public class BasicEnemy : MonoBehaviour
     public float moveSpeed;
     public bool isFacingRight;
 
+    public float attackRate;
+    private float m_attackRate;
+
     private Rigidbody2D body;
     private bool m_forwardIsGround;
     private bool m_facingRight;
@@ -23,16 +26,20 @@ public class BasicEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_attackRate = attackRate;
+
         m_facingRight = isFacingRight;
         body = GetComponent<Rigidbody2D>();
 
         //For roaming
-        body.velocity = new Vector2(moveSpeed, body.velocity.y);
+        body.velocity = new Vector2(moveSpeed * (m_facingRight ? 1 : -1), body.velocity.y);
     }
 
     // Update is called once per frame
     void Update()
     {
+        m_attackRate -= Time.deltaTime;
+
         m_forwardIsGround = Physics2D.OverlapCircle(groundCheck.transform.position, groundCheckRadius, whatIsGround);
         m_playerCollider = Physics2D.OverlapCircle(attackPoint.transform.position, attackRadius, whatIsPlayer);
         bool isAPlayer = Physics2D.OverlapCircle(attackPoint.transform.position, attackRadius, whatIsPlayer);
@@ -45,8 +52,11 @@ public class BasicEnemy : MonoBehaviour
 
         if (isAPlayer) 
         {
-            Debug.Log("Found a Player");
-            m_playerCollider.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            if (m_attackRate <= 0) 
+            {
+                m_playerCollider.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+                m_attackRate = attackRate;
+            }
         }
 
     }

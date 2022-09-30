@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private UIDocument m_UIDocument;
     [SerializeField] private GameObject m_optionsMenu;
-
+	
     // Get UI Document and register callbacks, MUST be OnEnable
     void OnEnable() {
         VisualElement rootVis =  m_UIDocument.rootVisualElement;
@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
         optn.clicked += OnOptionsClicked;
         crdt.clicked += OnCreditsClicked;
         quit.clicked += OnQuitClicked;
+		
     }
 
     void OnStartClicked() {
