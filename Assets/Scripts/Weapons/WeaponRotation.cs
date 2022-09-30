@@ -26,7 +26,7 @@ public class WeaponRotation : MonoBehaviour {
 
         Vector3 eulerangles = new Vector3(0f,0f,
             (Mathf.Atan2(deltapos.y,deltapos.x)
-            *Mathf.Rad2Deg) - (m_moving.facingRight ? 180f : 0f)
+            *Mathf.Rad2Deg) - (m_moving.facingRight ? 0f : 180f)
             );
 
         this.transform.rotation = Quaternion.Euler(eulerangles);
