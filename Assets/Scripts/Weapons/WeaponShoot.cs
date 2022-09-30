@@ -36,13 +36,34 @@ public class WeaponShoot : MonoBehaviour
 
         if(semiorautomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1")) {
             // Spawn bullet at the tip of the weapon
-            var tfm = this.transform.position + new Vector3(weaponlength,0f,-10f);
+            var tfm = this.transform.TransformPoint(this.transform.localPosition + new Vector3(weaponlength,0f,0f));
 
             GameObject current = Instantiate(projectile, tfm, Quaternion.identity);
-            float directionMultiplier = m_moving.returnDirectionMultiplier();
-            current.GetComponent<WeaponProjectile>().Shoot(weaponDamage, shootForce, directionMultiplier);
+
+            float angle = this.gameObject.transform.parent.transform.localRotation.normalized.eulerAngles.z;
+
+            int multx = m_moving.facingRight ? 1 : -1;
+
+            float sinangle = Mathf.Sin(angle*Mathf.Deg2Rad);
+            float cosangle = Mathf.Cos(angle*Mathf.Deg2Rad) * multx;
+
+            Vector2 temp = new Vector2(cosangle,sinangle);
+            temp = temp.normalized;
+
+            current.GetComponent<WeaponProjectile>().Shoot(weaponDamage, shootForce, temp);
 
             m_remainingCooldown = shootCooldown;
         }   
     }
+
+    // void OnDrawGizmos() {
+    //     float sinangle = Mathf.Sin(this.gameObject.transform.parent.transform.localRotation.normalized.eulerAngles.z*Mathf.Deg2Rad);
+    //     int multx = m_moving.facingRight ? 1 : -1;
+    //     float cosangle = Mathf.Cos(this.gameObject.transform.parent.transform.localRotation.normalized.eulerAngles.z*Mathf.Deg2Rad) * multx;
+
+    //     Vector2 temp = new Vector2(cosangle,sinangle);
+    //     temp = temp.normalized;
+
+    //     Gizmos.DrawLine(temp, temp*shootForce);
+    // }
 }
