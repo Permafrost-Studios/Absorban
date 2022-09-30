@@ -62,3 +62,6 @@ crashlytics-build.properties
 /.vscode/
 /UserSettings/
 .[Uu]ser[Ss]ettings/
+
+# 4Jaden
+*.bak
