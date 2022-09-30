@@ -63,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
 
         //Respawn you at the start of the level
 		
-        anim.SetTrigger("Dies");
+        // anim.SetTrigger("Dies");
 		
 		respawnHandler.GetComponent<PlayerRespawnHandler>().RespawnPlayer();
         
