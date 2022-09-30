@@ -27,8 +27,12 @@ public class FracturedMemoryManager : MonoBehaviour
 
     private UIDocument document;
 
+    GameObject notifObj;
+
     void Awake() 
     {
+        notifObj = GameObject.Find("Notifier");
+
         DontDestroyOnLoad(this.gameObject);
 
         document = GetComponent<UIDocument>();
@@ -38,11 +42,13 @@ public class FracturedMemoryManager : MonoBehaviour
         m_path = "Assets/Savedata/memories.json";
         m_nextID = 0;
 
-        // Stub();
-
         InitializeList(document.rootVisualElement);
 
         document.enabled = false;
+
+        notifObj.SetActive(false);
+
+        Stub();
     }
 
     void Update() {
@@ -58,16 +64,16 @@ public class FracturedMemoryManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.L)) 
         {
-            SceneManager.LoadScene("Map 2");
+            AddMemory("George");
         }
     }
 
-    // void Stub() 
-    // {
-    //     AddMemory("George");
-    //     AddMemory("Fred");
-    //     AddMemory("Reynold");
-    // }
+    void Stub() 
+    {
+        AddMemory("George");
+        AddMemory("Fred");
+        AddMemory("Reynold");
+    }
 
     Memory[] GenerateMemories(string path) 
     {
@@ -127,6 +133,15 @@ public class FracturedMemoryManager : MonoBehaviour
         {
             InitializeList(document.rootVisualElement);
         }
+
+        StartCoroutine(MemoryNotification());
+    }
+
+    private IEnumerator MemoryNotification() 
+    {
+        notifObj.SetActive(true);
+        yield return new WaitForSeconds(2f); //Notifications show for 2 seconds
+        notifObj.SetActive(false);
     }
 
     void NameSelected(IEnumerable<object> selectedItems)
