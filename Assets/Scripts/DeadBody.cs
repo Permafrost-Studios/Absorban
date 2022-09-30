@@ -52,7 +52,6 @@ public class DeadBody : MonoBehaviour
 
     void Despawn() 
     {
-        //Play despawn animation (L)
         Destroy(gameObject);
     }
 }
