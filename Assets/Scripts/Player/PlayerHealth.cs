@@ -58,4 +58,9 @@ public class PlayerHealth : MonoBehaviour
     // {
     //     TakeDamage(20f);
     // }
+    
+    void Absorb() 
+    {
+        anim.SetTrigger("Absorbs");
+    }
 }

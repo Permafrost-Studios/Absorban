@@ -36,6 +36,8 @@ public class DeadBody : MonoBehaviour
             case 0:
                 other.gameObject.GetComponent<MemoryBridge>().MemoryAdd(m_name);
                 // other.gameObject.GetComponent<WeaponManager>().AddWeapon(drop);
+
+                other.gameObject.GetComponent<PlayerHealth
                 break;
             case 1:
                 other.gameObject.GetComponent<MemoryBridge>().MemoryAdd(m_name);
@@ -52,7 +54,6 @@ public class DeadBody : MonoBehaviour
 
     void Despawn() 
     {
-        //Play despawn animation (L)
         Destroy(gameObject);
     }
 }
