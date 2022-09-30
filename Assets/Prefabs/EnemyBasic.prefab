@@ -218,6 +218,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  DeadBody: {fileID: 3815918644105087599, guid: 6f9c8073846ce8b4087735e9d2a7d321, type: 3}
+  weaponDropID: 0
+  memoryName: 
+  drops: 0
 --- !u!1 &1913346424172722962
 GameObject:
   m_ObjectHideFlags: 0

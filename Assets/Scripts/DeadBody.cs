@@ -8,20 +8,20 @@ public class DeadBody : MonoBehaviour
     private string m_name;
     private int m_resources;
 
-    void Init(int dropPrefab, string name) 
+    public void Init(int dropPrefab, string name) 
     {
         drop = dropPrefab;
         m_name = name;
         m_resources = 0;
     }
 
-    void Init(string name) 
+    public void Init(string name) 
     {
         m_name = name;
         m_resources = 1;
     }
 
-    void Init(int dropPrefab) 
+    public void Init(int dropPrefab) 
     {
         drop = dropPrefab;
         m_resources = 2;

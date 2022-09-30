@@ -494,6 +494,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
+  - m_RefCount: 0
+    m_Data:
+      e00: -3.1486275e+18
+      e01: NaN
+      e02: 4.7114105
+      e03: 0
+      e10: 3e-45
+      e11: NaN
+      e12: 4.5904e-41
+      e13: 0
+      e20: 8.5036e-41
+      e21: 0
+      e22: -3.148623e+18
+      e23: 0
+      e30: 0
+      e31: 7.34684e-40
+      e32: 3e-45
+      e33: 1
   m_TileColorArray:
   - m_RefCount: 13
     m_Data: {r: 1, g: 1, b: 1, a: 1}
@@ -645,7 +663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5247687493590047941, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5247687493590047944, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_RootOrder
@@ -1307,6 +1325,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  DeadBody: {fileID: 0}
+  weaponDropID: 0
+  memoryName: 
+  drops: 0
 --- !u!1001 &3815918644375245381
 PrefabInstance:
   m_ObjectHideFlags: 0

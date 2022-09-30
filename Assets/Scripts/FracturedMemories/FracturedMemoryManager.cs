@@ -64,15 +64,13 @@ public class FracturedMemoryManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.L)) 
         {
-            AddMemory("George");
+            AddMemory("RK68203");
         }
     }
 
     void Stub() 
     {
-        AddMemory("George");
-        AddMemory("Fred");
-        AddMemory("Reynold");
+        AddMemory("RK68203");
     }
 
     Memory[] GenerateMemories(string path) 
