@@ -39,7 +39,7 @@ public class ShooterChaser : MonoBehaviour
         m_facingRight = isFacingRight;
         
         body = GetComponent<Rigidbody2D>();
-        player = GameObject.Find("Player"); //Based on the assumption that the player is named "Player"
+        player = GameObject.Find("Player Revised"); //Based on the assumption that the player is named "Player"
 
         //For roaming
         body.velocity = new Vector2(moveSpeed, body.velocity.y);
