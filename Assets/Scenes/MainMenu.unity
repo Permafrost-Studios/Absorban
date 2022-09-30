@@ -309,8 +309,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004016462}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00fad3aae2c36759e93deb0614d0869a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MasterMixer: {fileID: 24100000, guid: beffbe88e89741241b74bb010fe6d91d, type: 2}
+  SFXMixer: {fileID: 24100000, guid: 2a564ce7bf12b01418b00a63db149693, type: 2}
+  MusicMixer: {fileID: 24100000, guid: b6bdf671088816749912abc9700dda64, type: 2}
