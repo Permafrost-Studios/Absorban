@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UIDocument: {fileID: 1041033458}
   m_optionsMenu: {fileID: 2239706183546903979, guid: cde682245facee86b94d19e922d81a0f, type: 3}
+  m_creditsMenu: {fileID: 5022345369425229307, guid: a271c350e3d1eff4c8e717ed9b49f0c2, type: 3}
 --- !u!1 &2004016462
 GameObject:
   m_ObjectHideFlags: 0

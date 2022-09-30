@@ -26,10 +26,6 @@ public class CustSceneMgr : MonoBehaviour
 		MasterMixer.SetFloat("MasterVol", ( Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1) );
 		SFXMixer.SetFloat("SFXVol", ( Mathf.Log( (float)(double)volumetable["music_vol"], 10 ) * 40 * -1) );
         MusicMixer.SetFloat("MusicVol", ( Mathf.Log( (float)(double)volumetable["music_vol"] , 10 ) * 40 * -1) );
-		
-		SceneManager.LoadScene(2);
-		
-		
     }
 
 

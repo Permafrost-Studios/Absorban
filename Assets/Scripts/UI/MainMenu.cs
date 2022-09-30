@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private UIDocument m_UIDocument;
     [SerializeField] private GameObject m_optionsMenu;
+    [SerializeField] private GameObject m_creditsMenu;
 	
     // Get UI Document and register callbacks, MUST be OnEnable
     void OnEnable() {
@@ -26,7 +28,7 @@ public class MainMenu : MonoBehaviour
     }
 
     void OnStartClicked() {
-        Debug.Log("start button clicked");
+        SceneManager.LoadScene("Map 1");
     }
 
     void OnOptionsClicked() {
@@ -35,7 +37,8 @@ public class MainMenu : MonoBehaviour
     }
 
     void OnCreditsClicked() {
-        Debug.Log("credits button clicked");
+        Instantiate(m_creditsMenu).GetComponent<CreditsMenu>().SetReturnToObject(this.gameObject);
+        this.gameObject.SetActive(false);
     }
 
     void OnQuitClicked() {
