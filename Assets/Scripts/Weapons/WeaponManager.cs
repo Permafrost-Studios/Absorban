@@ -62,13 +62,15 @@ public class WeaponManager : MonoBehaviour
         m_mouseAction.Disable();
     }
 
-    private void OnSwitchWeaponID(int keyval) {   
-        //Child id starts at 0;
+    private void OnSwitchWeaponID(int keyval) {  
+        if (keyval<(this.transform.childCount)) {
+                    //Child id starts at 0;
         gameObject.transform.GetChild(currentActive)
             .gameObject.SetActive(false);
         gameObject.transform.GetChild(keyval).gameObject
             .SetActive(true);
         currentActive = keyval;
+        }
     }
 
     private void OnSwitchWeapon(float value) {
@@ -76,12 +78,12 @@ public class WeaponManager : MonoBehaviour
             case > 0f:
                 // mWheel moved forwards
                 // When highest index loop around & Modulo over highest index
-                OnSwitchWeaponID((currentActive+1)%m_actions.Length);
+                OnSwitchWeaponID((currentActive+1)%discoveredWeapons.Count);
                 break;
 
             case < 0f:
                 // mWheel moved backwards (into palm)
-                OnSwitchWeaponID(((currentActive+(m_actions.Length-1))%m_actions.Length));
+                OnSwitchWeaponID(((currentActive+(discoveredWeapons.Count-1))%discoveredWeapons.Count));
                 break;            
         }
     }
