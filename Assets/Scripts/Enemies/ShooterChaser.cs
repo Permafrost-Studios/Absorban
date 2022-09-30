@@ -9,6 +9,7 @@ public class ShooterChaser : MonoBehaviour
     public GameObject groundCheck;
     public GameObject shootPoint;
     public GameObject projectile;
+    public GameObject sightPoint;
     public float groundCheckRadius;
     public float shootRange;
     public float sightRange;
@@ -57,11 +58,11 @@ public class ShooterChaser : MonoBehaviour
             Flip();
         }
 
-        RaycastHit2D sightHit = Physics2D.Raycast(transform.position, transform.right * (m_facingRight ? 1 : -1), sightRange, whatIsPlayer);
+        // RaycastHit2D sightHit = Physics2D.Raycast(sightPoint.transform.position, transform.right * (m_facingRight ? 1 : -1), sightRange, whatIsPlayer);
+        RaycastHit2D sightHit = Physics2D.BoxCast(transform.position, new Vector2(2, 2), 0f, transform.right * (m_facingRight ? 1 : -1), sightRange, whatIsPlayer);
 
         if(sightHit.collider != null) 
         {
-            Debug.Log("Found a Player");
             m_isChasing = true;
         }
 
@@ -123,6 +124,6 @@ public class ShooterChaser : MonoBehaviour
     void OnDrawGizmos() 
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
+        Gizmos.DrawLine(sightPoint.transform.position, sightPoint.transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
     }
 }
