@@ -10,7 +10,8 @@ public class EnemyHealth : MonoBehaviour
     private Animator anim;
     
     void Start() {
-    
+
+        anim = GetComponent<Animator>();
         m_currentHealth = maxHealth;
     
     }
@@ -19,17 +20,21 @@ public class EnemyHealth : MonoBehaviour
     
         m_currentHealth -= damageReceived;
 
-        if (m_currentHealth <= 0) {
-        
+        if (m_currentHealth <= 0) 
+        {
             Die();
-        
+        } 
+        else 
+        {
+            anim.SetTrigger("Hurts");
         }
     
     }
     
     void Die() {
-    
-        // do something
-    
+        
+        anim.SetTrigger("Dies");
+        
+        Destroy(gameObject);
     }
 }
