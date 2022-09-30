@@ -1611,6 +1611,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -1009980126947514849, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
+      propertyPath: drops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1009980126947514849, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
+      propertyPath: memoryName
+      value: FHS043947
+      objectReference: {fileID: 0}
     - target: {fileID: 5247687493590047941, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_Name
       value: EnemyComplex
@@ -1966,7 +1974,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405898342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.500002, y: -5.3999996, z: -10}
+  m_LocalPosition: {x: -29.5, y: -5.3999996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11274,7 +11282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112469420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.500002, y: -5.3999996, z: -10}
+  m_LocalPosition: {x: -29.5, y: -5.3999996, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

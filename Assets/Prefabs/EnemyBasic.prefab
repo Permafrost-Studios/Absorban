@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76dac1ae3b6823549ac4e4b5b13a0e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   DeadBody: {fileID: 3815918644105087599, guid: 6f9c8073846ce8b4087735e9d2a7d321, type: 3}
   weaponDropID: 0
   memoryName: 

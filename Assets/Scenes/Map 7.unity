@@ -541,6 +541,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 624765937}
     m_Modifications:
+    - target: {fileID: 1913346423324364214, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364216, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_Name
       value: EnemyBasic (4)
@@ -588,6 +592,14 @@ PrefabInstance:
     - target: {fileID: 1913346423324364219, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418395045576766222, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: drops
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418395045576766222, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: weaponDropID
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88296b151799bb84280679765c168b9a, type: 3}
@@ -967,6 +979,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 624765937}
     m_Modifications:
+    - target: {fileID: 1913346423324364214, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364216, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_Name
       value: EnemyBasic (2)
@@ -2314,6 +2330,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 624765937}
     m_Modifications:
+    - target: {fileID: 1913346423324364214, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364216, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_Name
       value: EnemyBasic (1)
@@ -4732,6 +4752,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 624765937}
     m_Modifications:
+    - target: {fileID: 1913346423324364214, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364216, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_Name
       value: EnemyBasic (5)
@@ -5046,6 +5070,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 624765937}
     m_Modifications:
+    - target: {fileID: -1009980126947514849, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
+      propertyPath: drops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1009980126947514849, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
+      propertyPath: memoryName
+      value: FLS719203
+      objectReference: {fileID: 0}
     - target: {fileID: 5247687493590047941, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_Name
       value: EnemyComplex
@@ -99223,6 +99255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 624765937}
     m_Modifications:
+    - target: {fileID: 1913346423324364214, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1913346423324364216, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: m_Name
       value: EnemyBasic

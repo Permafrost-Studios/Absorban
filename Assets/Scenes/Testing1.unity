@@ -661,10 +661,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyComplex
       objectReference: {fileID: 0}
-    - target: {fileID: 5247687493590047941, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5247687493590047944, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1287,48 +1283,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1721710127 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5247687493590047941, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
-  m_PrefabInstance: {fileID: 1026943007}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1721710133
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721710127}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8c2fb2191e230be468f68f3e2641a23f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1721710134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721710127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76dac1ae3b6823549ac4e4b5b13a0e1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  DeadBody: {fileID: 0}
-  weaponDropID: 0
-  memoryName: 
-  drops: 0
 --- !u!1001 &3815918644375245381
 PrefabInstance:
   m_ObjectHideFlags: 0
