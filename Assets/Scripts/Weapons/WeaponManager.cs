@@ -38,7 +38,15 @@ public class WeaponManager : MonoBehaviour
 
         // All in child-indexes, so 0-9
         currentActive = 0;
-        discoveredWeapons =  new List<GameObject>();
+
+        
+
+        if (discoveredWeapons.Count == 0) {
+            discoveredWeapons =  new List<GameObject>();
+            AddWeapon(0);
+            OnSwitchWeaponID(0);
+        }
+        
         // discoveredWeapons.Add(WeaponArchive[0]);
         RegisterCallbacks();
 

@@ -19,6 +19,7 @@ public class CustSceneMgr : MonoBehaviour
     // Update is called once per frame
     // TODO: Impl
     void Start() {
+        discoveredWeapons = new List<int>();
         
 		OptionsSaver volumeoptions = new OptionsSaver();
 		var volumetable = volumeoptions.ReadOpts();
@@ -27,6 +28,8 @@ public class CustSceneMgr : MonoBehaviour
 		SFXMixer.SetFloat("SFXVol", ( Mathf.Log( (float)(double)volumetable["music_vol"], 10 ) * 40 * -1) );
         MusicMixer.SetFloat("MusicVol", ( Mathf.Log( (float)(double)volumetable["music_vol"] , 10 ) * 40 * -1) );
     }
+
+    public List<int> discoveredWeapons;
 
 
 }

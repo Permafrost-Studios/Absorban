@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponArchive:
-  - {fileID: 0}
-  discoveredWeapons:
-  - {fileID: 0}
+  - {fileID: 3130031042617672517, guid: 2e84d63d5cca2efd89d503531ad99a67, type: 3}
+  - {fileID: 3130031042617672517, guid: 00e1dd50d1fc10ef0bfc6ba24239fe0d, type: 3}
+  - {fileID: 3130031042617672517, guid: 10355876e182961009edd43ef139a71f, type: 3}
+  - {fileID: 3130031042617672517, guid: fb1bbb2b2609149e1b063ac8e2bae41f, type: 3}
+  discoveredWeapons: []
+  m_cam: {fileID: 0}
