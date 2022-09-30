@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 5247687493590047946}
   - component: {fileID: 5247687493590047951}
   - component: {fileID: 5247687493590047950}
+  - component: {fileID: -1009980126947514849}
   m_Layer: 8
   m_Name: EnemyComplex
   m_TagString: Untagged
@@ -243,6 +244,23 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.21569327}
   m_Size: {x: 0.56861347, y: 0.56861347}
   m_Direction: 0
+--- !u!114 &-1009980126947514849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247687493590047941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76dac1ae3b6823549ac4e4b5b13a0e1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  DeadBody: {fileID: 3815918644105087599, guid: 6f9c8073846ce8b4087735e9d2a7d321, type: 3}
+  weaponDropID: 0
+  memoryName: 
+  drops: 0
 --- !u!1 &5247687493742399901
 GameObject:
   m_ObjectHideFlags: 0
