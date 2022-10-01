@@ -15,4 +15,9 @@ public class MemoryBridge : MonoBehaviour
     {
         memoryManager.GetComponent<FracturedMemoryManager>().AddMemory(name);
     }
+
+    void SetMemoryManager(GameObject obj) 
+    {
+        //memoryManager =
+    }
 }
