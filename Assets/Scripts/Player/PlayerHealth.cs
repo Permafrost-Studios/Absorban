@@ -7,6 +7,10 @@ public class PlayerHealth : MonoBehaviour
 {
     public float maxHealth;
     private float m_currentHealth;
+    private bool m_immune;
+
+    public float immunityLength;
+    public float hurtForce;
 	
 	[SerializeField] private GameObject respawnHandler;
 
@@ -32,19 +36,28 @@ public class PlayerHealth : MonoBehaviour
     
     public void TakeDamage(float damageReceived) 
     {
-        m_currentHealth -= damageReceived;
+        if(m_immune == false) 
+        {
+            m_currentHealth -= damageReceived;
 
-        if (m_currentHealth <= 0) {
-        
-            Die();
-        
+            if (m_currentHealth <= 0) {
+            
+                Die();
+            
+            }
+
+            m_currentHealth = Mathf.Clamp(m_currentHealth, -maxHealth, maxHealth);
+
+            UpdateHealthBar();
+
+            anim.SetTrigger("Hurts");
+
+            StartCoroutine(iFrames(immunityLength));
+
+            bool facingRight = GetComponent<PlayerMoving>().facingRight;
+
+            GetComponent<Rigidbody2D>().AddForce(new Vector2 (/*hurtForce * (facingRight ? 1 : -1)*/ 0f, hurtForce), ForceMode2D.Impulse);
         }
-
-        m_currentHealth = Mathf.Clamp(m_currentHealth, -maxHealth, maxHealth);
-
-        UpdateHealthBar();
-
-        anim.SetTrigger("Hurts");
     }
 
     void UpdateHealthBar() 
@@ -67,4 +80,11 @@ public class PlayerHealth : MonoBehaviour
     // {
     //     TakeDamage(20f);
     // }
+
+    IEnumerator iFrames(float length) 
+    {
+        m_immune = true;
+        yield return new WaitForSeconds(length);
+        m_immune = false;
+    }
 }

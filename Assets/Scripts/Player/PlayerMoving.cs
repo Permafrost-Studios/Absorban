@@ -21,6 +21,9 @@ public class PlayerMoving : MonoBehaviour
 	private bool m_isGrounded; 
 	public bool facingRight;
 
+	public float coyoteTime;
+	private float m_coyoteTime;
+
 	private Animator anim;
 
 	[SerializeField] public LayerMask whatIsGround;
@@ -46,12 +49,18 @@ public class PlayerMoving : MonoBehaviour
 		
 		m_isGrounded = Physics2D.OverlapBox(m_groundCheckObj.transform.position, new Vector2(playerWidth - .1f, .05f), 0f, whatIsGround);
 
-		if ( m_isGrounded ) {	
+		if(m_isGrounded) 
+		{
+			m_coyoteTime = coyoteTime;
 			m_privJumpCounter = extraJumpCounter;
 		} 
+		else 
+		{ 
+			m_coyoteTime -= Time.deltaTime;
+		}
 		
 		if ( Input.GetKeyDown(KeyCode.Space) ) {
-			if ( m_isGrounded ) { 
+			if ( m_coyoteTime >= 0f) { 
 				Jump(); 
 			} else if ( m_privJumpCounter > 0 ) {
 				Jump();

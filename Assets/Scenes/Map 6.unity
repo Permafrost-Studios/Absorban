@@ -1843,14 +1843,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -1009980126947514849, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
-      propertyPath: drops
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1009980126947514849, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
-      propertyPath: memoryName
-      value: FHS043947
-      objectReference: {fileID: 0}
     - target: {fileID: 5247687493590047941, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_Name
       value: EnemyComplex
@@ -1898,10 +1890,6 @@ PrefabInstance:
     - target: {fileID: 5247687493590047944, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5247687493590047951, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
-      propertyPath: moveSpeed
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea5c118e5471d68409af689f8f2ee99c, type: 3}
