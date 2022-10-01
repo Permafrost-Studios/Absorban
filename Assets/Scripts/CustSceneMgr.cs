@@ -20,10 +20,7 @@ public class CustSceneMgr : MonoBehaviour
     // TODO: Impl
     void Start() {
         discoveredWeapons = new List<int>();
-        
-		OptionsSaver volumeoptions = new OptionsSaver();
-		var volumetable = volumeoptions.ReadOpts();
-		
+		var volumetable = OptionsSaver.ReadOpts();
 		MasterMixer.SetFloat("MasterVol", ( Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1) );
 		SFXMixer.SetFloat("SFXVol", ( Mathf.Log( (float)(double)volumetable["music_vol"], 10 ) * 40 * -1) );
         MusicMixer.SetFloat("MusicVol", ( Mathf.Log( (float)(double)volumetable["music_vol"] , 10 ) * 40 * -1) );
