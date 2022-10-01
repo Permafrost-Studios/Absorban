@@ -8,7 +8,6 @@ public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private VisualTreeAsset m_OptionEntryTemplate;
     [SerializeField] private UIDocument m_UIDocument;
-    private OptionsSaver m_saver;
 
     #nullable enable
     private GameObject? m_returnTo;
@@ -34,7 +33,6 @@ public class OptionsMenu : MonoBehaviour
 
     // Get UI Document and register callbacks, MUST be OnEnable
     void OnEnable() {
-        m_saver = OptionsSaver.CreateInstance<OptionsSaver>();
         VisualElement rootVis =  m_UIDocument.rootVisualElement;
         Button quit = rootVis.Q<Button>("Return");
         quit.clicked += OnReturnClicked;
@@ -56,7 +54,7 @@ public class OptionsMenu : MonoBehaviour
         VisualElement optcontainer = rootVis.Q<VisualElement>("OptionsContainer");
 
         // Retrieve saved data in prep
-        Hashtable data = m_saver.ReadOpts();
+        Hashtable data = OptionsSaver.ReadOpts();
 
         foreach (DictionaryEntry item in m_settingsNameDict) {
             var elem = m_OptionEntryTemplate.Instantiate();
@@ -80,6 +78,13 @@ public class OptionsMenu : MonoBehaviour
     }
 
     void RegisterElemCallbacks(VisualElement element, string fieldname) {
-        (element as Slider).RegisterValueChangedCallback(x => m_saver.UpdateOptions(fieldname, x.newValue));
+        switch (element) {
+            case Slider:
+                (element as Slider).RegisterValueChangedCallback(x => OptionsSaver.UpdateOptions(fieldname, x.newValue));
+                (element as Slider).RegisterValueChangedCallback(x => OptionsApplicator.settingsApplicatorTable[fieldname](x.newValue));
+            break;
+        }
+        
+
     }   
 }
