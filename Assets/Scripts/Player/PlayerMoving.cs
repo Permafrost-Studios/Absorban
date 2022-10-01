@@ -102,6 +102,7 @@ public class PlayerMoving : MonoBehaviour
 
 		GameObject dust = Instantiate(jumpDust, feet.position, Quaternion.identity);
 		dust.GetComponent<ParticleSystem>().Play();
+		Destroy(dust, dust.GetComponent<ParticleSystem>().main.duration);
 	}
 
 	void Flip() {
