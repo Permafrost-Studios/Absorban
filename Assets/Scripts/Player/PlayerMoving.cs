@@ -10,6 +10,9 @@ public class PlayerMoving : MonoBehaviour
 	
 	[SerializeField] private float m_speedmult;
 	
+	public Transform feet;
+	public GameObject jumpDust;
+
 	public float jumpVel;
 	public float playerWidth;
 	public int extraJumpCounter;
@@ -61,6 +64,9 @@ public class PlayerMoving : MonoBehaviour
 		
 		if ( Input.GetKeyDown(KeyCode.Space) ) {
 			if ( m_coyoteTime >= 0f) { 
+				// GameObject dust = Instantiate(jumpDust, feet.position, Quaternion.identity);
+				// dust.GetComponent<ParticleSystem>().Play();
+
 				Jump(); 
 			} else if ( m_privJumpCounter > 0 ) {
 				Jump();
@@ -92,7 +98,10 @@ public class PlayerMoving : MonoBehaviour
     }
 	
 	void Jump() {
-		playerBody.velocity = new Vector2(playerBody.velocity.x, jumpVel);	
+		playerBody.velocity = new Vector2(playerBody.velocity.x, jumpVel);
+
+		GameObject dust = Instantiate(jumpDust, feet.position, Quaternion.identity);
+		dust.GetComponent<ParticleSystem>().Play();
 	}
 
 	void Flip() {
@@ -106,5 +115,4 @@ public class PlayerMoving : MonoBehaviour
 	{
 		return (facingRight ? 1 : -1);
 	}
-	
 }

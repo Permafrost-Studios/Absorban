@@ -38,6 +38,7 @@ Transform:
   m_Children:
   - {fileID: 2156532841540343552}
   - {fileID: 6793531225830266634}
+  - {fileID: 8824200393900835013}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,6 +178,8 @@ MonoBehaviour:
   playerBody: {fileID: 0}
   sprintMultiplier: 1
   m_speedmult: 2
+  feet: {fileID: 8824200393900835013}
+  jumpDust: {fileID: 7197887378930769783, guid: b04f0e4dde5a91e4b856558df6aed645, type: 3}
   jumpVel: 12
   playerWidth: 0.7
   extraJumpCounter: 2
@@ -248,6 +251,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2156532841513377060}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6006492840105225870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8824200393900835013}
+  m_Layer: 7
+  m_Name: feet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8824200393900835013
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6006492840105225870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.325, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2156532841513377060}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5597899802558787344
 PrefabInstance:
