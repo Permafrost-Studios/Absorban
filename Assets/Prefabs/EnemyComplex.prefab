@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 5247687493590047951}
   - component: {fileID: 5247687493590047950}
   - component: {fileID: -1009980126947514849}
+  - component: {fileID: 7740164158762573094}
   m_Layer: 8
   m_Name: EnemyComplex
   m_TagString: Untagged
@@ -261,6 +262,26 @@ MonoBehaviour:
   weaponDropID: 0
   memoryName: 
   drops: 0
+--- !u!95 &7740164158762573094
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247687493590047941}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8c2fb2191e230be468f68f3e2641a23f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5247687493742399901
 GameObject:
   m_ObjectHideFlags: 0
