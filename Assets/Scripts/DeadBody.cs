@@ -35,13 +35,13 @@ public class DeadBody : MonoBehaviour
         {
             case 0:
                 other.gameObject.GetComponent<MemoryBridge>().MemoryAdd(m_name);
-                // other.gameObject.GetComponent<WeaponManager>().AddWeapon(drop);
+                other.gameObject.GetComponentInChildren<WeaponManager>().AddWeapon(drop);
                 break;
             case 1:
                 other.gameObject.GetComponent<MemoryBridge>().MemoryAdd(m_name);
                 break;
             case 2:
-                other.gameObject.GetComponent<WeaponManager>().AddWeapon(drop);
+                other.gameObject.GetComponentInChildren<WeaponManager>().AddWeapon(drop);
                 break;
             default:
                 break;

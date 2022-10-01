@@ -19,6 +19,8 @@ public class ParallaxBackground : MonoBehaviour
 
         if (!m_bg) {
             m_bg = this.gameObject.GetComponentInChildren<SpriteRenderer>().gameObject;
+        } else {
+            Instantiate(m_bg, Vector3.zero, Quaternion.identity, this.transform);
         }
 
         Instantiate(m_bg,new Vector3(m_length.x,0f,0f), Quaternion.identity, this.transform); //Left and right
