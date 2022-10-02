@@ -6,6 +6,9 @@ using Newtonsoft.Json;
 using UnityEngine.UIElements;
 using System;
 using UnityEditor;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 using UnityEngine.SceneManagement;
 
@@ -76,8 +79,9 @@ public class FracturedMemoryManager : MonoBehaviour
 
     Memory[] GenerateMemories(string path) 
     {
-        TextAsset textMems = (TextAsset)AssetDatabase.LoadAssetAtPath("Assets/Savedata/memories.json", typeof(TextAsset));
-        string mems = textMems.ToString();
+        AsyncOperationHandle<TextAsset> textMems = Addressables.LoadAssetAsync<TextAsset>("Assets/Savedata/memories.json");
+        textMems.WaitForCompletion();
+        string mems = textMems.Result.ToString();
         return JsonConvert.DeserializeObject<Memory[]>(mems);
     }
 

@@ -1,31 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class CustSceneMgr : MonoBehaviour {
-	
-	public AudioMixer MasterMixer; 
+public class SoundManager : GenericSingleton<SoundManager> {
+    public UnityEngine.UIElements.UIDocument doc;
+    public AudioMixer MasterMixer; 
 	public AudioMixer SFXMixer; 
 	public AudioMixer MusicMixer; 
-	
-    void Awake() {
-        DontDestroyOnLoad(this.gameObject);
-        Debug.Log("donotdestroy");
-    }
 
-    // Update is called once per frame
-    // TODO: Impl
+    // Start is called before the first frame update
     void Start() {
-        discoveredWeapons = new List<int>();
-		var volumetable = OptionsSaver.ReadOpts();
+        var volumetable = OptionsSaver.ReadOpts();
 		MasterMixer.SetFloat("MasterVol", ( Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1) );
 		SFXMixer.SetFloat("SFXVol", ( Mathf.Log( (float)(double)volumetable["music_vol"], 10 ) * 40 * -1) );
         MusicMixer.SetFloat("MusicVol", ( Mathf.Log( (float)(double)volumetable["music_vol"] , 10 ) * 40 * -1) );
     }
 
-    public List<int> discoveredWeapons;
-
-
+    // Update is called once per frame
+    void Update() {
+        
+    }
 }

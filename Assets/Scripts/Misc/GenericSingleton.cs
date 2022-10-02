@@ -3,7 +3,7 @@ using UnityEngine;
 using System;
 
 // should be abstract
-public class GenericSingleton<T> : MonoBehaviour where T : MonoBehaviour {
+public abstract class GenericSingleton<T> : MonoBehaviour where T : MonoBehaviour {
 
     private static readonly Lazy<T> lazyInstance = new Lazy<T>(CreateObject);
 
