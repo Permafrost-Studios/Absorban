@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     private bool m_immune;
 
     public float immunityLength;
-    public float hurtForce;
+    public float knockbackMultiplier;
 	
 	[SerializeField] private GameObject respawnHandler;
 
@@ -18,6 +18,8 @@ public class PlayerHealth : MonoBehaviour
     private VisualElement healthBar;
 
     private Animator anim;
+
+    private Rigidbody2D body;
     
 	void Awake() {
 		
@@ -27,6 +29,7 @@ public class PlayerHealth : MonoBehaviour
 	
     void Start() 
     {
+        body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         document = GetComponent<UIDocument>();
         healthBar = document.rootVisualElement.Q("Fill");
@@ -54,9 +57,7 @@ public class PlayerHealth : MonoBehaviour
 
             StartCoroutine(iFrames(immunityLength));
 
-            bool facingRight = GetComponent<PlayerMoving>().facingRight;
-
-            GetComponent<Rigidbody2D>().AddForce(new Vector2 (/*hurtForce * (facingRight ? 1 : -1)*/ 0f, hurtForce), ForceMode2D.Impulse);
+            body.velocity =  new Vector2 (-body.velocity.x, Mathf.Clamp(-body.velocity.y, 0f, 10f));
         }
     }
 
@@ -83,8 +84,10 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator iFrames(float length) 
     {
+        gameObject.GetComponent<PlayerMoving>().ToggleMovement(true);
         m_immune = true;
         yield return new WaitForSeconds(length);
         m_immune = false;
+        gameObject.GetComponent<PlayerMoving>().ToggleMovement(false);
     }
 }

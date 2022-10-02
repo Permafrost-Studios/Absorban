@@ -263,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 300
   immunityLength: 0.1
-  hurtForce: 25
+  knockbackMultiplier: 1000
   respawnHandler: {fileID: 0}
 --- !u!114 &3186066013738017584
 MonoBehaviour:

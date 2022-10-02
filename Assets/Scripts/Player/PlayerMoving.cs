@@ -23,6 +23,7 @@ public class PlayerMoving : MonoBehaviour
 
 	private bool m_isGrounded; 
 	public bool facingRight;
+	private bool stopMoving;
 
 	public float coyoteTime;
 	private float m_coyoteTime;
@@ -77,7 +78,11 @@ public class PlayerMoving : MonoBehaviour
 		
 
 		m_playerVelocityX = Input.GetAxisRaw("Horizontal") * m_speedmult * sprintMultiplier;
-		playerBody.velocity = new Vector2(m_playerVelocityX, playerBody.velocity.y);
+
+		if(!stopMoving) 
+		{
+			playerBody.velocity = new Vector2(m_playerVelocityX, playerBody.velocity.y);
+		}
 
 
 		if ( Input.GetAxisRaw("Horizontal") < 0 && facingRight ) {
@@ -115,5 +120,10 @@ public class PlayerMoving : MonoBehaviour
 	public float returnDirectionMultiplier() 
 	{
 		return (facingRight ? 1 : -1);
+	}
+
+	public void ToggleMovement(bool value) 
+	{
+		stopMoving = value;
 	}
 }
