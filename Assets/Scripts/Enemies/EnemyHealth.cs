@@ -72,7 +72,7 @@ public class EnemyHealth : MonoBehaviour
                 break;
         }  
         
-        source.PlayOneShot(dieSound);
+        GameObject.Find("Player Revised").GetComponent<PlayerHealth>().source.PlayOneShot(dieSound);
         Destroy(gameObject);
     }
 }

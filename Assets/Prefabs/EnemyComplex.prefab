@@ -263,7 +263,7 @@ MonoBehaviour:
   weaponDropID: 0
   memoryName: 
   drops: 0
-  hurtSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 70deeca96a5458245bc8720eb8541486, type: 3}
   dieSound: {fileID: 8300000, guid: 455534e604dbce24ab5b1491301f38ce, type: 3}
 --- !u!95 &7740164158762573094
 Animator:
@@ -371,7 +371,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.75
       inSlope: 0
       outSlope: 0
       tangentMode: 0

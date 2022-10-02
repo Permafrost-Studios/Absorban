@@ -12,7 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public float immunityLength;
     public float knockbackMultiplier;
 
-    private AudioSource source;
+    public AudioSource source; //Needs to be public for the enemy to access
     public AudioClip hurtSound;
 	
 	[SerializeField] private GameObject respawnHandler;
