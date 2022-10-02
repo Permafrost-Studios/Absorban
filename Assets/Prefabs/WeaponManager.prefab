@@ -51,6 +51,7 @@ MonoBehaviour:
   - {fileID: 3130031042617672517, guid: 10355876e182961009edd43ef139a71f, type: 3}
   - {fileID: 3130031042617672517, guid: fb1bbb2b2609149e1b063ac8e2bae41f, type: 3}
   discoveredWeapons: []
+  weaponNotification: {fileID: 150326518462984485, guid: a20fa1a50240e20a396be201e6f8852b, type: 3}
   m_cam: {fileID: 0}
 --- !u!114 &7897789731589645929
 MonoBehaviour:

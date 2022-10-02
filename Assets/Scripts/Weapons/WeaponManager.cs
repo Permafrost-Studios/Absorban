@@ -11,7 +11,7 @@ public class WeaponManager : MonoBehaviour
     public List<GameObject> WeaponArchive;
     public List<GameObject> discoveredWeapons;
 
-    private UIDocument weaponNotification;
+    [SerializeField] private GameObject weaponNotification;
 
     // WARNING: The 9th element will be Alphanumeric 0
     private InputAction[] m_actions = new InputAction[] {
@@ -49,7 +49,6 @@ public class WeaponManager : MonoBehaviour
         OnSwitchWeaponID(0);
 
         // discoveredWeapons.Add(WeaponArchive[0]);
-        weaponNotification = GetComponent<UIDocument>();
         RegisterCallbacks();
 
         // Stub();
@@ -142,9 +141,10 @@ public class WeaponManager : MonoBehaviour
     }
 
     private IEnumerator WeaponNotification() {
-        weaponNotification.enabled = true;
+        
+        var obj = Instantiate(weaponNotification);
         yield return new WaitForSeconds(2f);
-        weaponNotification.enabled = false;
+        Destroy(obj);
     }
 
 }
