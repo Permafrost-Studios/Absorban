@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1434612612084922394}
   - component: {fileID: 9009338045473420016}
+  - component: {fileID: 7897789731589645929}
   m_Layer: 0
   m_Name: WeaponManager
   m_TagString: Untagged
@@ -51,3 +52,19 @@ MonoBehaviour:
   - {fileID: 3130031042617672517, guid: fb1bbb2b2609149e1b063ac8e2bae41f, type: 3}
   discoveredWeapons: []
   m_cam: {fileID: 0}
+--- !u!114 &7897789731589645929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6014632173064853719}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: cb05baa77ed289b999cbaa4ce790b021, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 5cdb3ccdba2bb4b42afeefc82dbe81f6, type: 3}
+  m_SortingOrder: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class WeaponManager : MonoBehaviour
     //Possibly use Transform.childCount;
     public List<GameObject> WeaponArchive;
     public List<GameObject> discoveredWeapons;
+
+    private UIDocument weaponNotification;
 
     // WARNING: The 9th element will be Alphanumeric 0
     private InputAction[] m_actions = new InputAction[] {
@@ -46,6 +49,7 @@ public class WeaponManager : MonoBehaviour
         OnSwitchWeaponID(0);
 
         // discoveredWeapons.Add(WeaponArchive[0]);
+        weaponNotification = GetComponent<UIDocument>();
         RegisterCallbacks();
 
         // Stub();
@@ -119,7 +123,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     // When picked up 
-    public void AddWeaponLowLevel(int ID) 
+    private void AddWeaponLowLevel(int ID) 
     {
         discoveredWeapons.Add(WeaponArchive[ID]);
 
@@ -132,12 +136,15 @@ public class WeaponManager : MonoBehaviour
     }
 
     public void AddWeapon(int ID) {
+        Debug.Log("tried adding weapon");
         AddWeaponLowLevel(ID);
+        StartCoroutine(WeaponNotification());
     }
 
-    // private void Stub() 
-    // {
-    //     AddWeapon(0);
-    //     AddWeapon(1);
-    // }
+    private IEnumerator WeaponNotification() {
+        weaponNotification.enabled = true;
+        yield return new WaitForSeconds(2f);
+        weaponNotification.enabled = false;
+    }
+
 }

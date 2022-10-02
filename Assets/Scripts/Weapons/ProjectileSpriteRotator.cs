@@ -8,7 +8,7 @@ public class ProjectileSpriteRotator : MonoBehaviour
 
     void Start() {
         body = this.gameObject.transform.parent.GetComponent<Rigidbody2D>();
-        Debug.Log("spawned bullet");
+        // Debug.Log("spawned bullet");
     }
     
     void Update() {
