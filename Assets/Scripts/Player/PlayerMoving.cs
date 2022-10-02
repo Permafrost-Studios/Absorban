@@ -30,10 +30,14 @@ public class PlayerMoving : MonoBehaviour
 
 	private Animator anim;
 
+	private AudioSource source;
+    public AudioClip jumpSound;
+
 	[SerializeField] public LayerMask whatIsGround;
 	[SerializeField] private GameObject m_groundCheckObj;
 	
     void Start() {
+		source = GetComponent<AudioSource>();
 		playerBody = GetComponent<Rigidbody2D>();  
 		anim = GetComponent<Animator>();
 		m_speedmult = 10;
@@ -104,6 +108,8 @@ public class PlayerMoving : MonoBehaviour
 	
 	void Jump() {
 		playerBody.velocity = new Vector2(playerBody.velocity.x, jumpVel);
+
+		source.PlayOneShot(jumpSound);
 
 		GameObject dust = Instantiate(jumpDust, feet.position, Quaternion.identity);
 		dust.GetComponent<ParticleSystem>().Play();

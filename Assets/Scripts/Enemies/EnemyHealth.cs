@@ -17,9 +17,13 @@ public class EnemyHealth : MonoBehaviour
     public Drops drops;
 
     private Animator anim;
+
+    private AudioSource source;
+    public AudioClip hurtSound;
+    public AudioClip dieSound;
     
     void Start() {
-
+        source = GetComponent<AudioSource>();
         anim = GetComponent<Animator>();
         m_currentHealth = maxHealth;
     
@@ -37,7 +41,8 @@ public class EnemyHealth : MonoBehaviour
         {
             anim.SetTrigger("Hurts");
         }
-    
+
+        source.PlayOneShot(hurtSound);
     }
     
     void Die() {
@@ -67,6 +72,7 @@ public class EnemyHealth : MonoBehaviour
                 break;
         }  
         
+        source.PlayOneShot(dieSound);
         Destroy(gameObject);
     }
 }

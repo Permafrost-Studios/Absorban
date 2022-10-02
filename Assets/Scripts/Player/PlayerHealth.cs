@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
 
     public float immunityLength;
     public float knockbackMultiplier;
+
+    private AudioSource source;
+    public AudioClip hurtSound;
 	
 	[SerializeField] private GameObject respawnHandler;
 
@@ -29,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
 	
     void Start() 
     {
+        source = GetComponent<AudioSource>();
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         document = GetComponent<UIDocument>();
@@ -58,6 +62,8 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(iFrames(immunityLength));
 
             body.velocity =  new Vector2 (-body.velocity.x, Mathf.Clamp(-body.velocity.y, 0f, 10f));
+
+            source.PlayOneShot(hurtSound);
         }
     }
 
