@@ -41,7 +41,7 @@ public class WeaponManager : MonoBehaviour
         currentActive = 0;
         discoveredWeapons =  new List<GameObject>();
         foreach (var item in WeaponPersistanceManager.instance.discoveredWeapons) {
-            AddWeapon(item);
+            AddWeaponLowLevel(item);
         }
         OnSwitchWeaponID(0);
 
@@ -119,7 +119,7 @@ public class WeaponManager : MonoBehaviour
     }
 
     // When picked up 
-    public void AddWeapon(int ID) 
+    public void AddWeaponLowLevel(int ID) 
     {
         discoveredWeapons.Add(WeaponArchive[ID]);
 
@@ -129,6 +129,10 @@ public class WeaponManager : MonoBehaviour
 
         var weaponInstance = Instantiate(WeaponArchive[ID], this.gameObject.transform);
         weaponInstance.SetActive(false);
+    }
+
+    public void AddWeapon(int ID) {
+        AddWeaponLowLevel(ID);
     }
 
     // private void Stub() 

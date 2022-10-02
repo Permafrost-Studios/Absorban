@@ -13,7 +13,7 @@ public class CreditsMenu : MonoBehaviour
 
     void OnEnable() {
         document = GetComponent<UIDocument>();
-        Button back = document.rootVisualElement.Q<Button>("BackButton");
+        Button back = document.rootVisualElement.Q<Button>("Return");
         back.clicked += OnReturnClicked;
     }
 
