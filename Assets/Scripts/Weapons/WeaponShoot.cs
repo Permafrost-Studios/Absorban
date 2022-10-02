@@ -14,6 +14,9 @@ public class WeaponShoot : MonoBehaviour
 
     private PlayerMoving m_moving; 
 
+    private AudioSource m_source;
+    public AudioClip m_shootySound;
+
     // GetButtonDown or GetButton, false = semi
     [SerializeField] private bool semiorautomatic;
 
@@ -24,6 +27,8 @@ public class WeaponShoot : MonoBehaviour
     private Vector3 normalscale;
     // Start is called before the first frame update
     void Start() {
+        m_source = GetComponent<AudioSource>();
+
         m_remainingCooldown = 0f;
         m_moving = this.gameObject.transform.parent.parent.gameObject.GetComponent<PlayerMoving>();
         weaponlength = this.GetComponent<SpriteRenderer>().bounds.extents.x;      
@@ -63,6 +68,8 @@ public class WeaponShoot : MonoBehaviour
         }
 
         if((semiorautomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1")) && (m_remainingCooldown < 0f)) {
+            m_source.PlayOneShot(m_shootySound);
+            
             // Spawn bullet at the tip of the weapon
             var tfm = this.transform.TransformPoint(this.transform.localPosition + new Vector3(weaponlength,0f,0f));
 

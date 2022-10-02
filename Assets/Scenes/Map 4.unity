@@ -12808,7 +12808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8510157821858603026, guid: 89d84c817d4c2104ea5a1196300d22f6, type: 3}
       propertyPath: newScene
-      value: Map 5
+      value: '[Redesign] Map 3'
       objectReference: {fileID: 0}
     - target: {fileID: 8510157821858603027, guid: 89d84c817d4c2104ea5a1196300d22f6, type: 3}
       propertyPath: m_Size.x

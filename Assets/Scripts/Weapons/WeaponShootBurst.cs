@@ -17,6 +17,9 @@ public class WeaponShootBurst : MonoBehaviour
 
     private PlayerMoving m_moving; 
 
+    private AudioSource m_source;
+    public AudioClip m_shootySound;
+
     // GetButtonDown or GetButton, false = semi
     [SerializeField] private bool semiorautomatic;
 
@@ -68,6 +71,7 @@ public class WeaponShootBurst : MonoBehaviour
         }
 
         if((semiorautomatic ? Input.GetButton("Fire1") : Input.GetButtonDown("Fire1")) && (m_remainingCooldown < 0f)) {
+            m_source.PlayOneShot(m_shootySound);
 
             if (m_remainingBulletsInBurst > 0 ) {
                 m_remainingBulletsInBurst--;

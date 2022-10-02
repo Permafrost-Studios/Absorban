@@ -265,6 +265,7 @@ MonoBehaviour:
   maxHealth: 300
   immunityLength: 0.1
   knockbackMultiplier: 1000
+  source: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: 458ed4fb0cb95ec4199860a4d1804adf, type: 3}
   respawnHandler: {fileID: 0}
 --- !u!114 &3186066013738017584
@@ -347,7 +348,7 @@ AudioSource:
   m_GameObject: {fileID: 2156532841513377065}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2a564ce7bf12b01418b00a63db149693, type: 2}
+  OutputAudioMixerGroup: {fileID: 4674034242541009501, guid: beffbe88e89741241b74bb010fe6d91d, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
