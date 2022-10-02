@@ -6,7 +6,7 @@ using Newtonsoft.Json;
 
 public static class OptionsSaver {
 
-    private static Object _lock;
+    private static readonly System.Object _lock = new System.Object();
     public static Hashtable defaultsettings = new Hashtable{
         {"main_vol",50d},
         {"music_vol",50d},
@@ -21,7 +21,7 @@ public static class OptionsSaver {
         string serialdat = JsonConvert.SerializeObject(defaultsettings);
         lock(_lock) {
             File.WriteAllText(Application.persistentDataPath + "/options.json", serialdat);
-            Debug.Log("DEFAULT Options written to: " + Application.persistentDataPath + "/options.json");
+            // Debug.Log("DEFAULT Options written to: " + Application.persistentDataPath + "/options.json");
         }
 
     }
