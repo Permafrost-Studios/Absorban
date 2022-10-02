@@ -33,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
     void Start() 
     {
         source = GetComponent<AudioSource>();
+        source.outputAudioMixerGroup = SoundManager.instance.MasterMixer.FindMatchingGroups("SFX")[0];
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         document = GetComponent<UIDocument>();

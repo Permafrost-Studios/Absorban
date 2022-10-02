@@ -42,6 +42,8 @@ public class FracturedMemoryManager : MonoBehaviour
         document = GetComponent<UIDocument>();
         Memories = GenerateMemories(m_path);
 
+        this.GetComponent<AudioSource>().outputAudioMixerGroup = SoundManager.instance.MasterMixer.FindMatchingGroups("Music")[0];
+
         discoveredMemories = new List<Memory>();
         m_path = "Assets/Savedata/memories.json";
         m_nextID = 0;

@@ -28,6 +28,7 @@ public class WeaponShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         m_source = GetComponent<AudioSource>();
+        m_source.outputAudioMixerGroup = SoundManager.instance.MasterMixer.FindMatchingGroups("SFX")[0];
 
         m_remainingCooldown = 0f;
         m_moving = this.gameObject.transform.parent.parent.gameObject.GetComponent<PlayerMoving>();

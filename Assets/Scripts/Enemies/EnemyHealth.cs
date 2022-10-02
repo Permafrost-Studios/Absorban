@@ -24,6 +24,8 @@ public class EnemyHealth : MonoBehaviour
     
     void Start() {
         source = GetComponent<AudioSource>();
+        source.outputAudioMixerGroup = SoundManager.instance.MasterMixer.FindMatchingGroups("SFX")[0];
+
         anim = GetComponent<Animator>();
         m_currentHealth = maxHealth;
     

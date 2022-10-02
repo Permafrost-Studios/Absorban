@@ -38,6 +38,7 @@ public class PlayerMoving : MonoBehaviour
 	
     void Start() {
 		source = GetComponent<AudioSource>();
+		source.outputAudioMixerGroup = SoundManager.instance.MasterMixer.FindMatchingGroups("SFX")[0];
 		playerBody = GetComponent<Rigidbody2D>();  
 		anim = GetComponent<Animator>();
 		m_speedmult = 10;
