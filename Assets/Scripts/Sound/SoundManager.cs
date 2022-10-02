@@ -12,7 +12,7 @@ public class SoundManager : GenericSingleton<SoundManager> {
 
     private void LoadMixer() {
         AsyncOperationHandle<AudioMixer> MixerHandler = Addressables.LoadAssetAsync<AudioMixer>("Assets/Master.mixer");
-        Debug.Log(MixerHandler);
+        // Debug.Log(MixerHandler);
         MixerHandler.WaitForCompletion();
         MasterMixer = MixerHandler.Result;
     }
@@ -23,9 +23,9 @@ public class SoundManager : GenericSingleton<SoundManager> {
         }
 
         var volumetable = OptionsSaver.ReadOpts();
-        Debug.Log(volumetable["main_vol"]);
+        // Debug.Log(volumetable["main_vol"]);
 
-        Debug.Log(Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1);
+        // Debug.Log(Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1);
 
 		MasterMixer.SetFloat("MasterVol", (-80 + Mathf.Log((float)(double)volumetable["main_vol"] , 10 ) * 40));
 		MasterMixer.SetFloat("SFXVol", (-80 + Mathf.Log((float)(double)volumetable["sfx_vol"] , 10 ) * 40));
