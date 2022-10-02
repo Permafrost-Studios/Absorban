@@ -4,5 +4,5 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class WeaponPersistanceManager : GenericSingleton<WeaponPersistanceManager> {
-    public List<int> discoveredWeapons = new List<int>() {0,1,2,3};
+    public List<int> discoveredWeapons = new List<int>() {0};
 }

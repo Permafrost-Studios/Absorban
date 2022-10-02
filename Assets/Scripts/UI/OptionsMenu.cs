@@ -25,9 +25,9 @@ public class OptionsMenu : MonoBehaviour
     void PopulateElemsDict() {
         m_settingsDisplayDict.Clear();
 
-        m_settingsDisplayDict.Add("main_vol",new Slider(100f,1f));
-        m_settingsDisplayDict.Add("music_vol",new Slider(100f,1f));
-        m_settingsDisplayDict.Add("sfx_vol",new Slider(100f,1f));
+        m_settingsDisplayDict.Add("main_vol",new Slider(1f,100f));
+        m_settingsDisplayDict.Add("music_vol",new Slider(1f,100f));
+        m_settingsDisplayDict.Add("sfx_vol",new Slider(1f,100f));
     }
 
 

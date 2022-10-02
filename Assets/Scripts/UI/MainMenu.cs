@@ -9,10 +9,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private UIDocument m_UIDocument;
     [SerializeField] private GameObject m_optionsMenu;
     [SerializeField] private GameObject m_creditsMenu;
+
+    void Start() {
+        SoundManager.instance.UpdateSoundSettings();
+    }
 	
     // Get UI Document and register callbacks, MUST be OnEnable
     void OnEnable() {
-        SoundManager.instance.UpdateSoundSettings();
 
         VisualElement rootVis =  m_UIDocument.rootVisualElement;
 
