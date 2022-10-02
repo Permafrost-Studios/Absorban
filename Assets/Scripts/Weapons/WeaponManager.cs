@@ -37,16 +37,14 @@ public class WeaponManager : MonoBehaviour
         m_moving = this.gameObject.transform.parent.gameObject.GetComponent<PlayerMoving>();
 
         // All in child-indexes, so 0-9
+        // Load all discovered weapons from persistent object
         currentActive = 0;
-
-        
-
-        if (discoveredWeapons.Count == 0) {
-            discoveredWeapons =  new List<GameObject>();
-            AddWeapon(0);
-            OnSwitchWeaponID(0);
+        discoveredWeapons =  new List<GameObject>();
+        foreach (var item in WeaponPersistanceManager.instance.discoveredWeapons) {
+            AddWeapon(item);
         }
-        
+        OnSwitchWeaponID(0);
+
         // discoveredWeapons.Add(WeaponArchive[0]);
         RegisterCallbacks();
 
@@ -110,12 +108,12 @@ public class WeaponManager : MonoBehaviour
             case > 0f:
                 // mWheel moved forwards
                 // When highest index loop around & Modulo over highest index
-                OnSwitchWeaponID((currentActive+1)%discoveredWeapons.Count);
+                OnSwitchWeaponID(((currentActive+(discoveredWeapons.Count-1))%discoveredWeapons.Count));
                 break;
 
             case < 0f:
                 // mWheel moved backwards (into palm)
-                OnSwitchWeaponID(((currentActive+(discoveredWeapons.Count-1))%discoveredWeapons.Count));
+                OnSwitchWeaponID((currentActive+1)%discoveredWeapons.Count);                
                 break;            
         }
     }
@@ -124,6 +122,10 @@ public class WeaponManager : MonoBehaviour
     public void AddWeapon(int ID) 
     {
         discoveredWeapons.Add(WeaponArchive[ID]);
+
+        if (!WeaponPersistanceManager.instance.discoveredWeapons.Contains(ID)) {
+            WeaponPersistanceManager.instance.discoveredWeapons.Add(ID);
+        }
 
         var weaponInstance = Instantiate(WeaponArchive[ID], this.gameObject.transform);
         weaponInstance.SetActive(false);
