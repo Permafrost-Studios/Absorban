@@ -30,6 +30,8 @@ public class WeaponShootBurst : MonoBehaviour
     private Vector3 normalscale;
     // Start is called before the first frame update
     void Start() {
+        m_source = GetComponent<AudioSource>();
+
         m_remainingCooldown = 0f;
         m_remainingBulletsInBurst = bulletsInburst;
 
