@@ -10,7 +10,7 @@ public abstract class GenericSingleton<T> : MonoBehaviour where T : MonoBehaviou
     public static T instance => lazyInstance.Value;
 
     private static T CreateObject() {
-        GameObject owner = new GameObject(nameof(T));
+        GameObject owner = new GameObject(typeof(T).FullName);
         T instance = owner.AddComponent<T>();
         DontDestroyOnLoad(owner);
         return instance;
