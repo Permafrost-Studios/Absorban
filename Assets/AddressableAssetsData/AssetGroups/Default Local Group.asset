@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 716763a89ff4ed53b9a9f9993c4518c6
+  m_SerializeEntries:
+  - m_GUID: beffbe88e89741241b74bb010fe6d91d
+    m_Address: Assets/Master.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: b6bdf671088816749912abc9700dda64
+    m_Address: Assets/Music.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 2a564ce7bf12b01418b00a63db149693
+    m_Address: Assets/SFX.mixer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  - m_GUID: 5c9e3c1d47c0a144b9466a8ec0ce2743
+    m_Address: Assets/Savedata/memories.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - default
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 80f30d85797daa0558edecfc1c29dc57, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c831499dc4fb11ff6ad218662926d17d, type: 2}
+    - {fileID: 11400000, guid: 6083bff9bea40c4c2b8ee06ded83e804, type: 2}
