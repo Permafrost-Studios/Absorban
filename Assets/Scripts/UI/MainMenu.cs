@@ -12,6 +12,8 @@ public class MainMenu : MonoBehaviour
 	
     // Get UI Document and register callbacks, MUST be OnEnable
     void OnEnable() {
+        SoundManager.instance.UpdateSoundSettings();
+
         VisualElement rootVis =  m_UIDocument.rootVisualElement;
 
         Button strt = rootVis.Q<Button>("Start");

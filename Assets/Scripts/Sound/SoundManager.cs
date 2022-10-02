@@ -8,13 +8,17 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SoundManager : GenericSingleton<SoundManager> {
 
+    private AudioMixer MasterMixer;
+
     // Start is called before the first frame update
     void Start() {
-        AsyncOperationHandle<AudioMixer> MasterMixer = Addressables.LoadAssetAsync<AudioMixer>("Assets/Master.mixer");
-        
+        MasterMixer = Addressables.LoadAssetAsync<AudioMixer>("Assets/Master.mixer").Result;
+    }
+
+    public void UpdateSoundSettings() {
         var volumetable = OptionsSaver.ReadOpts();
-		MasterMixer.Result.SetFloat("MasterVol", ( Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1) );
-		MasterMixer.Result.SetFloat("SFXVol", ( Mathf.Log( (float)(double)volumetable["music_vol"], 10 ) * 40 * -1) );
-        MasterMixer.Result.SetFloat("MusicVol", ( Mathf.Log( (float)(double)volumetable["music_vol"] , 10 ) * 40 * -1) );
+		MasterMixer.SetFloat("MasterVol", ( Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1) );
+		MasterMixer.SetFloat("SFXVol", ( Mathf.Log( (float)(double)volumetable["music_vol"], 10 ) * 40 * -1) );
+        MasterMixer.SetFloat("MusicVol", ( Mathf.Log( (float)(double)volumetable["music_vol"] , 10 ) * 40 * -1) );
     }
 }

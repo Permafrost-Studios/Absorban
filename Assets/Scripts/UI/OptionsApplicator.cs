@@ -12,7 +12,13 @@ public static class OptionsApplicator {
         {"sfx_vol",SFXVol}
     };
 
-    public static void MasterVol(System.Object obj) {}
-    public static void MusicVol(System.Object obj) {}
-    public static void SFXVol(System.Object obj) {}
+    public static void MasterVol(System.Object obj) {
+        SoundManager.instance.UpdateSoundSettings();
+    }
+    public static void MusicVol(System.Object obj) {
+        SoundManager.instance.UpdateSoundSettings();
+    }
+    public static void SFXVol(System.Object obj) {
+        SoundManager.instance.UpdateSoundSettings();
+    }
 }
