@@ -23,7 +23,6 @@ public class WeaponProjectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) 
     {
-        Debug.Log(m_damage);
         if (other.gameObject.layer == 8) {
             other.gameObject.GetComponent<EnemyHealth>().TakeDamage(m_damage);
         } 
