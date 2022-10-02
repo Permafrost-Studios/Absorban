@@ -8,11 +8,15 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class SoundManager : GenericSingleton<SoundManager> {
 
-    private AudioMixer MasterMixer;
+    public AudioMixer MasterMixer {get; private set;}
+
+    void Awake() {
+        LoadMixer();
+    }
 
     private void LoadMixer() {
         AsyncOperationHandle<AudioMixer> MixerHandler = Addressables.LoadAssetAsync<AudioMixer>("Assets/Master.mixer");
-        // Debug.Log(MixerHandler);
+        Debug.Log(MixerHandler);
         MixerHandler.WaitForCompletion();
         MasterMixer = MixerHandler.Result;
     }
@@ -23,7 +27,7 @@ public class SoundManager : GenericSingleton<SoundManager> {
         }
 
         var volumetable = OptionsSaver.ReadOpts();
-        // Debug.Log(volumetable["main_vol"]);
+        Debug.Log(volumetable["main_vol"]);
 
         // Debug.Log(Mathf.Log( (float)(double)(volumetable["main_vol"] ), 10) * 40 * -1);
 
