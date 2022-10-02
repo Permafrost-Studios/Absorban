@@ -19001,11 +19001,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4418395045576766222, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: drops
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4418395045576766222, guid: 88296b151799bb84280679765c168b9a, type: 3}
       propertyPath: memoryName
       value: RYU813234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4418395045576766222, guid: 88296b151799bb84280679765c168b9a, type: 3}
+      propertyPath: weaponDropID
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88296b151799bb84280679765c168b9a, type: 3}
