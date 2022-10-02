@@ -60,7 +60,7 @@ public class BasicChaser : MonoBehaviour
 
         if(sightHit.collider != null) 
         {
-            Debug.Log("Found a Player");
+            // Debug.Log("Found a Player");
             m_isChasing = true;
         }
 
@@ -105,9 +105,9 @@ public class BasicChaser : MonoBehaviour
         body.velocity = new Vector2(-body.velocity.x, body.velocity.y);
     }
 
-    void OnDrawGizmos() 
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
-    }
+    // void OnDrawGizmos() 
+    // {
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawLine(transform.position, transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
+    // }
 }

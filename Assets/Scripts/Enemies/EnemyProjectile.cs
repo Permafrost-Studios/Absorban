@@ -17,7 +17,7 @@ public class EnemyProjectile : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other) 
     {
-        Debug.Log(m_damage);
+        // Debug.Log(m_damage);
         if (other.gameObject.layer == 7)
         {
             other.gameObject.GetComponent<PlayerHealth>().TakeDamage(m_damage);

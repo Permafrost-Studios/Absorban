@@ -12,7 +12,7 @@ public class CustSceneMgr : MonoBehaviour {
 	
     void Awake() {
         DontDestroyOnLoad(this.gameObject);
-        Debug.Log("donotdestroy");
+        // Debug.Log("donotdestroy");
     }
 
     // Update is called once per frame

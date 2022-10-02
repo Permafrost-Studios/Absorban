@@ -71,7 +71,7 @@ public class ShooterChaser : MonoBehaviour
         if(shootHit.collider != null) 
         {
             if(m_shootCooldown <= 0) {
-                Debug.Log("Shot at the player");
+                // Debug.Log("Shot at the player");
                 GameObject currentProjectile;
                 currentProjectile = Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
                 currentProjectile.GetComponent<EnemyProjectile>().Shoot(shootDamage, shootForce, (m_facingRight ? 1 : -1));
@@ -121,9 +121,9 @@ public class ShooterChaser : MonoBehaviour
         body.velocity = new Vector2(-body.velocity.x, body.velocity.y);
     }
 
-    void OnDrawGizmos() 
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(sightPoint.transform.position, sightPoint.transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
-    }
+    // void OnDrawGizmos() 
+    // {
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawLine(sightPoint.transform.position, sightPoint.transform.position + transform.right * sightRange * (m_facingRight ? 1 : -1));
+    // }
 }
